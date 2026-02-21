@@ -76,4 +76,4 @@ Your job as a leader isn't to prevent that evaluation. It's to make sure the ans
 
 ---
 
-*I'm building [UnsaidSignals](https://unsaidsignals.com) to help leaders catch these signals systematically. Because relying on gut feel doesn't scale.*
+*Leaders need to catch these signals systematically. Because relying on gut feel doesn't scale.*

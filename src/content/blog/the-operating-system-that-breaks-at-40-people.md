@@ -86,4 +86,4 @@ Don't wait for the crisis that forces it. By then, you've already lost people yo
 
 ---
 
-*This is what I think about every day while building [UnsaidSignals](https://unsaidsignals.com) — a tool that helps leaders catch the early signals of misalignment before they become real problems.*
+*This is what I think about every day — how to help leaders catch the early signals of misalignment before they become real problems.*
