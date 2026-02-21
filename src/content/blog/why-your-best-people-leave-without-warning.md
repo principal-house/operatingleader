@@ -2,7 +2,10 @@
 title: 'Why Your Best People Leave Without Warning'
 description: 'They don''t actually leave without warning. You just missed the signals. Here''s what to watch for before your top performers walk out.'
 pubDate: '2026-02-21'
+heroImage: '/images/signals-timeline.png'
 ---
+
+![The Signal Timeline](/images/signals-timeline.png)
 
 Here's something I learned the expensive way: your best people never leave suddenly. It just feels sudden because you weren't reading the signals.
 

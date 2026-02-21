@@ -2,9 +2,12 @@
 title: 'What Private Equity Taught Me About Product Management'
 description: 'Going from founder to VP Product inside a PE-backed company was a crash course in disciplined execution. Here''s what changed my thinking permanently.'
 pubDate: '2026-02-17'
+heroImage: '/images/founder-vs-pe.png'
 ---
 
-When Pipedrive acquired Mailigen in 2019, I went from being a founder who did everything to a VP of Product inside a company backed by Vista Equity Partners. Vista is one of the most operationally rigorous PE firms in the world.
+![Founder Mindset vs PE Mindset](/images/founder-vs-pe.png)
+
+When Pipedrive acquired Mailigen in 2020, I went from being a founder who did everything to a VP of Product inside a company backed by Vista Equity Partners. Vista is one of the most operationally rigorous PE firms in the world.
 
 It was the most uncomfortable, transformative learning experience of my career.
 

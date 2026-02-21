@@ -2,7 +2,10 @@
 title: 'The Operating System That Breaks at 40 People'
 description: 'Every founder hits a wall between 20 and 50 employees. The systems that got you here won''t get you there. Here''s what actually needs to change.'
 pubDate: '2026-02-19'
+heroImage: '/images/scaling-wall.png'
 ---
+
+![Why Companies Break at 40](/images/scaling-wall.png)
 
 There's a number that nobody warns you about. It's not your first hire. It's not your first million in revenue. It's somewhere around 40 people — and it's where most founder-led companies quietly start breaking.
 
