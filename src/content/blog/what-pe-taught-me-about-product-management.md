@@ -2,7 +2,6 @@
 title: 'What Private Equity Taught Me About Product Management'
 description: 'Going from founder to VP Product inside a PE-backed company was a crash course in disciplined execution. Here''s what changed my thinking permanently.'
 pubDate: '2026-02-17'
-heroImage: '/images/founder-vs-pe.png'
 ---
 
 ![Founder Mindset vs PE Mindset](/images/founder-vs-pe.png)

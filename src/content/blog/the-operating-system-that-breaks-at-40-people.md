@@ -2,7 +2,6 @@
 title: 'The Operating System That Breaks at 40 People'
 description: 'Every founder hits a wall between 20 and 50 employees. The systems that got you here won''t get you there. Here''s what actually needs to change.'
 pubDate: '2026-02-19'
-heroImage: '/images/scaling-wall.png'
 ---
 
 ![Why Companies Break at 40](/images/scaling-wall.png)
