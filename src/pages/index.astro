@@ -1,0 +1,122 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>Leadership is an <span class="accent">operating system</span>, not a title.</h1>
+				<p class="subtitle">
+					Practical insights for founders and product leaders scaling teams from 10 to 100. 
+					From someone who's done it — built a company to 40 people, sold it, and kept going.
+				</p>
+			</section>
+
+			<section class="posts">
+				<h2>Latest Articles</h2>
+				<ul>
+					{posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								<div class="post-meta">
+									<FormattedDate date={post.data.pubDate} />
+								</div>
+								<h3>{post.data.title}</h3>
+								<p>{post.data.description}</p>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		padding: 3em 0 2em;
+		border-bottom: 1px solid rgb(var(--gray-light));
+		margin-bottom: 3em;
+	}
+	.hero h1 {
+		font-size: 2.75em;
+		letter-spacing: -0.03em;
+		line-height: 1.15;
+		margin-bottom: 0.75em;
+	}
+	.accent {
+		color: var(--accent);
+	}
+	.subtitle {
+		font-size: 1.15em;
+		color: rgb(var(--gray));
+		line-height: 1.7;
+		max-width: 560px;
+	}
+	.posts h2 {
+		font-size: 1.25em;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: rgb(var(--gray));
+		margin-bottom: 1.5em;
+		font-weight: 600;
+	}
+	.posts ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.posts li {
+		margin-bottom: 0;
+	}
+	.posts li a {
+		display: block;
+		padding: 1.5em 0;
+		border-bottom: 1px solid rgb(var(--gray-light));
+		text-decoration: none;
+		transition: all 0.15s ease;
+	}
+	.posts li a:hover {
+		padding-left: 0.5em;
+	}
+	.posts li a:hover h3 {
+		color: var(--accent);
+	}
+	.post-meta {
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+		margin-bottom: 0.25em;
+	}
+	.posts h3 {
+		font-size: 1.35em;
+		margin: 0 0 0.25em;
+		color: rgb(var(--black));
+		transition: color 0.15s ease;
+	}
+	.posts p {
+		color: rgb(var(--gray));
+		font-size: 0.95em;
+		margin: 0;
+		line-height: 1.5;
+	}
+	@media (max-width: 720px) {
+		.hero h1 { font-size: 2em; }
+		.hero { padding: 2em 0 1.5em; }
+	}
+</style>
