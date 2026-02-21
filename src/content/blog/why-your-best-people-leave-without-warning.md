@@ -1,7 +1,7 @@
 ---
 title: 'Why Your Best People Leave Without Warning'
 description: 'They don''t actually leave without warning. You just missed the signals. Here''s what to watch for before your top performers walk out.'
-pubDate: '2026-02-21'
+pubDate: '2026-02-12'
 ---
 
 ![The Signal Timeline](/images/signals-timeline.png)
