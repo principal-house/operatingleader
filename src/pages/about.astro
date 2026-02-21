@@ -1,42 +1,101 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="About"
-	description="Janis Rozenblats — founder, product leader, operator."
-	pubDate={new Date('2026-02-21')}
->
-	<p>
-		I'm Janis Rozenblats. I've been building and scaling companies for 20 years across 8 countries.
-	</p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description="Janis Rozenblats — founder, product leader, operator." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="about-header">
+				<div class="avatar">JR</div>
+				<h1>Janis Rozenblats</h1>
+				<p class="tagline">Built a company to 40 people, sold it to Pipedrive, spent 4 years in PE-backed product leadership. Now I write about what actually works when scaling teams.</p>
+			</div>
 
-	<p>
-		At 19, I started my first web agency in Denmark. By 23, I'd founded <strong>Mailigen</strong> — an email marketing 
-		platform I grew from 4 guys in a 12sqm office to 40 people and €2M revenue. We were acquired by 
-		<strong>Pipedrive</strong> in 2019, where I spent 4 years as VP of Product through a Vista PE acquisition.
-	</p>
+			<div class="prose">
+				<h2>Background</h2>
+				<p>
+					I've been building and scaling companies for 20 years across 8 countries. At 19, I started my first web agency in Denmark. By 23, I'd founded <strong>Mailigen</strong> — an email marketing platform I grew from 4 people in a 12sqm office to 40 people and €2M revenue.
+				</p>
+				<p>
+					Mailigen was acquired by <strong>Pipedrive</strong> in 2019. I spent 4 years there as VP of Product through a Vista Private Equity acquisition — learning what happens when a startup operating system meets institutional scale.
+				</p>
+				<p>
+					Today I'm building <a href="https://unsaidsignals.com">UnsaidSignals</a> — a team performance intelligence tool that surfaces the signals leaders usually miss. I also serve as VP of Product at a robotics startup.
+				</p>
 
-	<p>
-		Today I'm building <a href="https://unsaidsignals.com">UnsaidSignals</a> — a team performance intelligence 
-		tool that surfaces the signals leaders usually miss. I also serve as VP of Product at a robotics startup.
-	</p>
+				<h2>Why This Site</h2>
+				<p>
+					Scaling from 10 to 100 people is where most founders break. Not because they lack talent or vision, but because the operating system that got them to 10 doesn't work at 40.
+				</p>
+				<p>
+					I write about what I've learned — the hard way — about team health, leadership operating systems, and reading the signals that tell you what your team won't say out loud.
+				</p>
+				<p>
+					No theory. No frameworks-for-frameworks-sake. Just what actually worked when the stakes were real.
+				</p>
 
-	<h2>Why This Site</h2>
-	<p>
-		Scaling from 10 to 100 people is where most founders break. Not because they lack talent or vision, 
-		but because the operating system that got them to 10 doesn't work at 40.
-	</p>
-	<p>
-		I write about what I've learned — the hard way — about team health, leadership operating systems, 
-		and reading the signals that tell you what your team won't say out loud.
-	</p>
-	<p>
-		No theory. No frameworks-for-frameworks-sake. Just what actually worked when the stakes were real.
-	</p>
+				<h2>Connect</h2>
+				<p>
+					<a href="https://www.linkedin.com/in/janisr/">LinkedIn</a> — I'm most active here.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
 
-	<h2>Connect</h2>
-	<p>
-		<a href="https://www.linkedin.com/in/janisr/">LinkedIn</a> — I'm most active here.
-	</p>
-</Layout>
+<style>
+	.about-header {
+		padding: 3em 0 2.5em;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 2.5em;
+	}
+	.avatar {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		background: rgba(201, 165, 90, 0.1);
+		border: 2px solid var(--accent);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.2em;
+		font-weight: 700;
+		color: var(--accent);
+		margin-bottom: 1.5em;
+	}
+	h1 {
+		font-size: 2em;
+		margin-bottom: 0.5em;
+	}
+	.tagline {
+		color: var(--text-muted);
+		font-size: 1.05em;
+		line-height: 1.7;
+		max-width: 540px;
+		margin: 0;
+	}
+	.prose h2 {
+		margin-top: 2.5em;
+		margin-bottom: 0.75em;
+		font-size: 1.25em;
+	}
+	.prose p {
+		color: var(--text-muted);
+		line-height: 1.8;
+	}
+	.prose strong { color: var(--text); }
+	.prose a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+</style>

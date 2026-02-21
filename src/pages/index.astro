@@ -20,28 +20,36 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section class="hero">
-				<h1>Leadership is an <span class="accent">operating system</span>, not a title.</h1>
+				<p class="eyebrow">For founders & product leaders scaling 10 → 100</p>
+				<h1>The operating system<br />that doesn't break<br />at <span class="accent">40 people</span>.</h1>
 				<p class="subtitle">
-					Practical insights for founders and product leaders scaling teams from 10 to 100. 
-					From someone who's done it — built a company to 40 people, sold it, and kept going.
+					Lessons from building a company, selling it, and surviving PE-backed product leadership. No theory — just what actually works.
 				</p>
 			</section>
 
+			<section class="author-bar">
+				<div class="author-info">
+					<div class="author-avatar">JR</div>
+					<div>
+						<p class="author-name">Janis Rozenblats</p>
+						<p class="author-role">VP of Product · Ex-founder (Mailigen → Pipedrive)</p>
+					</div>
+				</div>
+			</section>
+
 			<section class="posts">
-				<h2>Latest Articles</h2>
-				<ul>
-					{posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.id}/`}>
-								<div class="post-meta">
-									<FormattedDate date={post.data.pubDate} />
-								</div>
-								<h3>{post.data.title}</h3>
-								<p>{post.data.description}</p>
-							</a>
-						</li>
-					))}
-				</ul>
+				<div class="section-label">Latest</div>
+				{posts.map((post) => (
+					<a href={`/blog/${post.id}/`} class="post-card">
+						<div class="post-content">
+							<h3>{post.data.title}</h3>
+							<p class="post-desc">{post.data.description}</p>
+						</div>
+						<div class="post-meta">
+							<FormattedDate date={post.data.pubDate} />
+						</div>
+					</a>
+				))}
 			</section>
 		</main>
 		<Footer />
@@ -50,73 +58,117 @@ const posts = (await getCollection('blog')).sort(
 
 <style>
 	.hero {
-		padding: 3em 0 2em;
-		border-bottom: 1px solid rgb(var(--gray-light));
-		margin-bottom: 3em;
+		padding: 4em 0 3em;
+	}
+	.eyebrow {
+		font-size: 0.8em;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--accent);
+		font-weight: 600;
+		margin-bottom: 1.25em;
 	}
 	.hero h1 {
-		font-size: 2.75em;
-		letter-spacing: -0.03em;
-		line-height: 1.15;
+		font-size: 3em;
+		letter-spacing: -0.04em;
+		line-height: 1.1;
 		margin-bottom: 0.75em;
+		color: var(--text);
 	}
 	.accent {
 		color: var(--accent);
 	}
 	.subtitle {
-		font-size: 1.15em;
-		color: rgb(var(--gray));
+		font-size: 1.1em;
+		color: var(--text-muted);
 		line-height: 1.7;
-		max-width: 560px;
-	}
-	.posts h2 {
-		font-size: 1.25em;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: rgb(var(--gray));
-		margin-bottom: 1.5em;
-		font-weight: 600;
-	}
-	.posts ul {
-		list-style: none;
-		padding: 0;
+		max-width: 520px;
 		margin: 0;
 	}
-	.posts li {
-		margin-bottom: 0;
+
+	.author-bar {
+		padding: 1.5em 0;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 3em;
 	}
-	.posts li a {
+	.author-info {
+		display: flex;
+		align-items: center;
+		gap: 0.85em;
+	}
+	.author-avatar {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: var(--accent-faint);
+		border: 1px solid var(--accent);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.8em;
+		font-weight: 700;
+		color: var(--accent);
+		flex-shrink: 0;
+	}
+	.author-name {
+		margin: 0;
+		font-size: 0.9em;
+		font-weight: 600;
+		color: var(--text);
+	}
+	.author-role {
+		margin: 0;
+		font-size: 0.8em;
+		color: var(--text-muted);
+	}
+
+	.section-label {
+		font-size: 0.75em;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--text-faint);
+		font-weight: 600;
+		margin-bottom: 1.5em;
+	}
+
+	.post-card {
 		display: block;
 		padding: 1.5em 0;
-		border-bottom: 1px solid rgb(var(--gray-light));
+		border-bottom: 1px solid var(--border);
 		text-decoration: none;
 		transition: all 0.15s ease;
 	}
-	.posts li a:hover {
-		padding-left: 0.5em;
+	.post-card:first-of-type {
+		border-top: 1px solid var(--border);
 	}
-	.posts li a:hover h3 {
+	.post-card:hover {
+		padding-left: 0.75em;
+	}
+	.post-card:hover h3 {
 		color: var(--accent);
 	}
-	.post-meta {
-		font-size: 0.85em;
-		color: rgb(var(--gray));
-		margin-bottom: 0.25em;
-	}
-	.posts h3 {
-		font-size: 1.35em;
-		margin: 0 0 0.25em;
-		color: rgb(var(--black));
+	.post-card h3 {
+		font-size: 1.25em;
+		margin: 0 0 0.35em;
+		color: var(--text);
 		transition: color 0.15s ease;
+		letter-spacing: -0.02em;
 	}
-	.posts p {
-		color: rgb(var(--gray));
-		font-size: 0.95em;
+	.post-desc {
+		color: var(--text-muted);
+		font-size: 0.9em;
 		margin: 0;
 		line-height: 1.5;
 	}
+	.post-meta {
+		font-size: 0.78em;
+		color: var(--text-faint);
+		margin-top: 0.5em;
+	}
+
 	@media (max-width: 720px) {
-		.hero h1 { font-size: 2em; }
-		.hero { padding: 2em 0 1.5em; }
+		.hero { padding: 2.5em 0 2em; }
+		.hero h1 { font-size: 2.25em; }
 	}
 </style>

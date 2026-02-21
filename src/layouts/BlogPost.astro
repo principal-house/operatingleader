@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -8,79 +7,120 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
-
 	<body>
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+				<div class="article-header">
+					<a href="/blog" class="back">← Articles</a>
+					<h1>{title}</h1>
+					<div class="meta">
+						<FormattedDate date={pubDate} />
+						{updatedDate && (
+							<span class="updated"> · Updated <FormattedDate date={updatedDate} /></span>
+						)}
+						<span class="separator">·</span>
+						<span>Janis Rozenblats</span>
+					</div>
 				</div>
 				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
 					<slot />
+				</div>
+				<div class="article-footer">
+					<div class="author-card">
+						<div class="author-avatar">JR</div>
+						<div>
+							<p class="author-name">Janis Rozenblats</p>
+							<p class="author-bio">Built a company to 40 people, sold it to Pipedrive, spent 4 years in PE-backed product leadership. Now I write about what actually works when scaling teams.</p>
+							<a href="https://www.linkedin.com/in/janisr/" target="_blank" class="author-link">Follow on LinkedIn →</a>
+						</div>
+					</div>
 				</div>
 			</article>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.article-header {
+		padding: 3em 0 2em;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 2.5em;
+	}
+	.back {
+		font-size: 0.82em;
+		color: var(--text-faint);
+		text-decoration: none;
+		display: inline-block;
+		margin-bottom: 1.5em;
+		transition: color 0.15s;
+	}
+	.back:hover { color: var(--accent); }
+	h1 {
+		font-size: 2.25em;
+		line-height: 1.15;
+		margin-bottom: 0.5em;
+		letter-spacing: -0.03em;
+	}
+	.meta {
+		font-size: 0.82em;
+		color: var(--text-muted);
+	}
+	.separator { margin: 0 0.15em; }
+	.updated { font-style: italic; }
+
+	.article-footer {
+		margin-top: 4em;
+		padding-top: 2.5em;
+		border-top: 1px solid var(--border);
+	}
+	.author-card {
+		display: flex;
+		gap: 1em;
+		align-items: flex-start;
+	}
+	.author-avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background: rgba(201, 165, 90, 0.1);
+		border: 1px solid var(--accent);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.85em;
+		font-weight: 700;
+		color: var(--accent);
+		flex-shrink: 0;
+	}
+	.author-name {
+		margin: 0 0 0.25em;
+		font-weight: 600;
+		font-size: 0.95em;
+	}
+	.author-bio {
+		margin: 0 0 0.5em;
+		font-size: 0.85em;
+		color: var(--text-muted);
+		line-height: 1.6;
+	}
+	.author-link {
+		font-size: 0.82em;
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.author-link:hover { text-decoration: underline; }
+
+	@media (max-width: 720px) {
+		h1 { font-size: 1.75em; }
+		.article-header { padding: 2em 0 1.5em; }
+	}
+</style>
