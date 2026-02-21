@@ -5,7 +5,7 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<a href="/" class="logo">The Operating Leader</a>
+		<a href="/" class="logo"><img src="/images/ol-logo.png" alt="The Operating Leader" class="logo-img" /> The Operating Leader</a>
 		<div class="nav-links">
 			<HeaderLink href="/blog">Articles</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
@@ -42,6 +42,8 @@ import HeaderLink from './HeaderLink.astro';
 		text-decoration: none;
 		letter-spacing: -0.02em;
 	}
+	.logo { display: flex; align-items: center; gap: 0.5em; }
+	.logo-img { width: 28px; height: 28px; border-radius: 4px; }
 	.logo:hover { color: var(--accent); }
 	.nav-links {
 		display: flex;
