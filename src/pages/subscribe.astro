@@ -1,0 +1,118 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Subscribe — The Operating Leader" description="One insight per week on scaling teams from 10 to 100. No fluff, no theory — just what actually works." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="subscribe-page">
+				<p class="eyebrow">Newsletter</p>
+				<h1>The Operating Leader</h1>
+				<p class="tagline">One insight per week on scaling teams from 10 to 100.</p>
+
+				<div class="value-prop">
+					<p>Every week, I share one hard-earned lesson from building a company to 40 people, selling it, and leading product teams through PE-backed growth.</p>
+					<p>No frameworks stolen from business school. No "5 tips" listicles. Just honest writing about what actually works — and what quietly breaks — when you're scaling a team.</p>
+				</div>
+
+				<div class="form-section">
+					<NewsletterForm />
+				</div>
+
+				<div class="what-to-expect">
+					<p class="section-label">What you'll get</p>
+					<ul>
+						<li>The systems that hold teams together past 40 people</li>
+						<li>How to keep your best people from leaving without warning</li>
+						<li>Product leadership lessons from inside PE-backed companies</li>
+						<li>The unsexy operational stuff that actually drives growth</li>
+					</ul>
+				</div>
+
+				<p class="author-note">Written by <strong>Janis Rozenblats</strong> — entrepreneur, founder, product leader.</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.subscribe-page {
+		padding: 4em 0;
+		max-width: 540px;
+	}
+	.eyebrow {
+		font-size: 0.8em;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--accent);
+		font-weight: 600;
+		margin-bottom: 1em;
+	}
+	h1 {
+		font-size: 2.5em;
+		letter-spacing: -0.04em;
+		line-height: 1.1;
+		margin-bottom: 0.4em;
+	}
+	.tagline {
+		font-size: 1.15em;
+		color: var(--text-muted);
+		margin-bottom: 2em;
+	}
+	.value-prop p {
+		font-size: 0.95em;
+		color: var(--text-muted);
+		line-height: 1.7;
+		margin-bottom: 1em;
+	}
+	.form-section {
+		margin: 2.5em 0;
+		padding: 2em 0;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+	}
+	.section-label {
+		font-size: 0.75em;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--text-faint);
+		font-weight: 600;
+		margin-bottom: 1em;
+	}
+	.what-to-expect ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.what-to-expect li {
+		padding: 0.5em 0;
+		font-size: 0.9em;
+		color: var(--text-muted);
+		border-bottom: 1px solid var(--border);
+	}
+	.what-to-expect li:last-child {
+		border-bottom: none;
+	}
+	.what-to-expect li::before {
+		content: "→ ";
+		color: var(--accent);
+	}
+	.author-note {
+		margin-top: 2.5em;
+		font-size: 0.85em;
+		color: var(--text-faint);
+	}
+	@media (max-width: 720px) {
+		.subscribe-page { padding: 2.5em 0; }
+		h1 { font-size: 2em; }
+	}
+</style>
