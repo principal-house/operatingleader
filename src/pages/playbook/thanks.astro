@@ -1,0 +1,72 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Thank You — The Operating Leader" description="Your copy of The Team Health Playbook is on its way." />
+	</head>
+	<body>
+		<Header />
+		<main class="thanks-page">
+			<section class="thanks">
+				<h1>Thank you! 🎉</h1>
+				<p class="lead">Your copy of <strong>The Team Health Playbook</strong> is on its way to your inbox.</p>
+				<p>Check your email for the download link. If you don't see it within a few minutes, check your spam folder.</p>
+				<div class="next-steps">
+					<h2>While you wait</h2>
+					<ul>
+						<li>Read the latest on <a href="/blog">The Operating Leader blog</a></li>
+						<li>Connect with me on <a href="https://www.linkedin.com/in/janisr/" target="_blank">LinkedIn</a></li>
+					</ul>
+				</div>
+				<p class="support">Questions? Reach out at <strong>frank@principal.house</strong></p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.thanks-page {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 4em 1em;
+		text-align: center;
+	}
+	.thanks h1 {
+		font-size: 2.5em;
+		margin-bottom: 0.5em;
+	}
+	.lead {
+		font-size: 1.2em;
+		color: rgb(var(--gray-dark));
+		margin-bottom: 1.5em;
+	}
+	.next-steps {
+		text-align: left;
+		margin: 2em auto;
+		max-width: 400px;
+		padding: 1.5em;
+		background: rgba(var(--gray-light), 0.5);
+		border-radius: 8px;
+	}
+	.next-steps h2 {
+		font-size: 1.1em;
+		margin-bottom: 0.75em;
+	}
+	.next-steps ul {
+		padding-left: 1.25em;
+	}
+	.next-steps li {
+		margin-bottom: 0.5em;
+	}
+	.support {
+		margin-top: 2em;
+		font-size: 0.9em;
+		color: rgb(var(--gray));
+	}
+</style>

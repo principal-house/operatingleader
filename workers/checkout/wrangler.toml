@@ -1,0 +1,8 @@
+name = "operatingleader-checkout"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+STRIPE_PUBLISHABLE_KEY = "pk_live_51T3s2E5EWJHsRcu1wpUZPW9zYVC1yRQ2Jy6AQ8omDRPkwcpzAulErXAtOjFK1fsi5MZeXW4hmm3AqB3PlciWjvbk00d8u6P2N2"
+SUCCESS_URL = "https://operatingleader.com/playbook/thanks"
+CANCEL_URL = "https://operatingleader.com/playbook"
