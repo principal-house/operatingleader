@@ -170,6 +170,8 @@ import Footer from '../components/Footer.astro';
 		max-width: 720px;
 		margin: 0 auto;
 		padding: 2em 1em 4em;
+		overflow-x: hidden;
+		word-wrap: break-word;
 	}
 
 	/* Hero */
@@ -209,6 +211,8 @@ import Footer from '../components/Footer.astro';
 		font-size: 1.1em;
 		text-decoration: none !important;
 		transition: background 0.15s ease, transform 0.1s ease;
+		box-sizing: border-box;
+		max-width: 100%;
 	}
 	.cta-button:hover {
 		background: var(--accent-hover);
@@ -299,6 +303,8 @@ import Footer from '../components/Footer.astro';
 		padding: 3em 2em;
 		border-radius: 12px;
 		border: 2px solid var(--border);
+		overflow: hidden;
+		box-sizing: border-box;
 	}
 	.buy-box h2 {
 		margin-bottom: 0.5em;
@@ -374,7 +380,9 @@ import Footer from '../components/Footer.astro';
 		.price { font-size: 2.5em; }
 		.buy-box { padding: 2em 1.25em; }
 		.buy-includes { max-width: 100%; }
-		.cta-button { padding: 0.8em 2em; font-size: 1em; width: 100%; text-align: center; box-sizing: border-box; }
+		.cta-button { padding: 0.8em 1.5em; font-size: 1em; display: block; width: 100%; text-align: center; box-sizing: border-box; }
+		.hero { padding: 1.5em 0; }
+		.buy-box { padding: 1.5em 1em; overflow: hidden; }
 		.who-list li { font-size: 0.95em; }
 		.faq-item h3 { font-size: 1em; }
 		.faq-item p { font-size: 0.9em; }
