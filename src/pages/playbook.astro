@@ -167,11 +167,13 @@ import Footer from '../components/Footer.astro';
 
 <style>
 	.playbook-page {
-		max-width: 720px;
+		width: 100% !important;
+		max-width: 720px !important;
 		margin: 0 auto;
 		padding: 2em 1em 4em;
 		overflow-x: hidden;
 		word-wrap: break-word;
+		box-sizing: border-box;
 	}
 
 	/* Hero */
@@ -392,8 +394,11 @@ import Footer from '../components/Footer.astro';
 	@media (max-width: 480px) {
 		.hero h1 { font-size: 1.8em; }
 		.section h2 { font-size: 1.25em; }
+		.eyebrow { font-size: 0.65em; letter-spacing: 0.05em; }
+		.subtitle { font-size: 0.9em; }
 		.price { font-size: 2em; }
 		.buy-box { padding: 1.5em 1em; }
+		.section p { font-size: 0.95em; }
 	}
 
 	.buy-btn.loading {
