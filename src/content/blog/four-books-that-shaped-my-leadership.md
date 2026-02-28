@@ -23,7 +23,7 @@ Chu's concept of "thick face, black heart" isn't about being heartless. It's abo
 
 **How it changed my leadership:**
 
-At Mailigen, I had to fire our first sales hire — a friend who helped us get started but couldn't grow with the company. Old me would have delayed for months, hoping things would improve. "Thick face, black heart" me had the conversation within a week. It was the right call for everyone.
+At Mailigen, I had to fire our first support hire — a friend who helped us get started but couldn't grow with the company. Old me would have delayed for months, hoping things would improve. "Thick face, black heart" me had the conversation within a week. It was the right call for everyone.
 
 Later, during the Pipedrive acquisition, when teams were being restructured and people were scared, this philosophy kept me focused on what was best for the 700 people in the company, not just the vocal few who resisted change.
 
@@ -65,7 +65,7 @@ During the private equity transition at Pipedrive, this thinking saved me from m
 
 ## "Extreme Ownership" by Jocko Willink
 
-**When I read it:** 2018, during a particularly challenging quarter at Pipedrive  
+**When I read it:** 2015, during a particularly challenging period at Mailigen  
 **What it taught me:** Leadership is taking responsibility for outcomes, not assigning blame
 
 I thought I understood accountability until I read this book. Willink's military examples of extreme ownership — taking responsibility not just for your decisions but for every outcome in your sphere of influence — was a masterclass in leadership mindset.
@@ -89,7 +89,9 @@ These four books share a common insight: leadership isn't about personality or c
 - **The 4-Hour Body** taught me ruthless prioritization of effort  
 - **Extreme Ownership** taught me complete accountability for outcomes
 
-Twenty years later, these principles still guide every leadership decision I make. From building Mailigen to scaling at Pipedrive to transforming teams at a robotics startup — the contexts change, but the fundamentals remain.
+Twenty years later, these principles still guide every leadership decision I make. From building Mailigen (where I learned these lessons the hard way) to scaling at Pipedrive (where I applied them the right way) to now at Aerones where I'm helping a founder-led robotics company cross the chasm — the contexts change, but the fundamentals remain.
+
+At Aerones, I'm applying everything I learned: the emotional resilience for tough decisions, the systematic approach to culture building, the ruthless prioritization of effort, and complete ownership of outcomes. It's the synthesis of two decades of learning, finally applied in a context where we're building something that's never been built before.
 
 ## What's On Your Shelf?
 
