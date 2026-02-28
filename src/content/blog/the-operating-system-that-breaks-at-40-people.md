@@ -74,7 +74,7 @@ This is where most founders under-invest. They hire great individual contributor
 
 ## The pattern I keep seeing
 
-I've now been through this transition as a founder (Mailigen), as a product leader inside PE (Pipedrive + Vista), and as an executive at a robotics startup. The details change, but the pattern is identical:
+I've now been through this transition as a founder (Mailigen), as a product leader inside PE (Pipedrive + Vista), and as an executive at Aerones where I'm applying these hard-won lessons to help scale a wind industry robotics pioneer. The details change, but the pattern is identical:
 
 **What got you to 15 people was founder energy. What gets you to 50 is founder systems.**
 

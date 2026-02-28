@@ -82,4 +82,4 @@ PE didn't kill my founder spirit. It gave it structure. And structure, it turns 
 
 ---
 
-*I write about the intersection of leadership, product, and team performance at [The Operating Leader](https://operatingleader.com).*
+*I write about the intersection of leadership, product, and team performance. Get insights like this in your inbox — [subscribe to the newsletter](https://operatingleader.com/#subscribe). Or dive deeper with the [$29 Operating Leader Playbook](https://gumroad.com/l/operatingleaderplaybook).*

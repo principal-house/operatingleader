@@ -8,7 +8,7 @@ pubDate: '2026-02-12'
 
 Here's something I learned the expensive way: your best people never leave suddenly. It just feels sudden because you weren't reading the signals.
 
-I built Mailigen from 4 people in a 12 square meter office to 40. Along the way, I lost people I shouldn't have lost. Not because the company was bad — but because I was too busy building to notice what was changing.
+I built Mailigen from 4 people in a 12 square meter office to 40, then continued learning these lessons at Pipedrive as we scaled from 700 to 1000 people through a Vista PE acquisition. Now at Aerones with 300 people, I see the same patterns at different scales. Along the way, I've lost people I shouldn't have lost. Not because the companies were bad — but because I was too busy building to notice what was changing.
 
 ## The myth of the "surprise" resignation
 
