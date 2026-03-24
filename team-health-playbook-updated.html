@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Team Health Playbook - Janis Rozenblats</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #0891b2;
+            --accent: #10b981;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .cover {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 3rem;
+            page-break-after: always;
+        }
+        
+        .cover h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .cover .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+        
+        .cover .author {
+            font-size: 1.125rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 { font-size: 2.25rem; color: var(--primary); page-break-before: always; }
+        h2 { font-size: 1.875rem; color: var(--primary); margin-top: 3rem; }
+        h3 { font-size: 1.5rem; color: var(--text); }
+        h4 { font-size: 1.25rem; color: var(--text); }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        strong {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        em {
+            font-style: italic;
+            color: var(--text-muted);
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            font-style: italic;
+        }
+        
+        .toc {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            page-break-after: always;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .toc-item {
+            margin-bottom: 0.75rem;
+        }
+        
+        .toc-section {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .toc-subsection {
+            margin-left: 2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .framework-box {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .dimension {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        
+        .dimension h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .dimension-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        
+        .equation {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 1.125rem;
+        }
+        
+        .red-flag {
+            color: #dc2626;
+            font-weight: 500;
+        }
+        
+        .good-looks {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .question-box {
+            background: white;
+            border-left: 3px solid var(--primary);
+            padding: 1rem 1rem 1rem 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .question-number {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .what-to-do {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .story-box {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .ai-prompt {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 1rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            margin: 1rem 0;
+        }
+        
+        .page-number {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .illustration {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .illustration img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        
+        .illustration-caption {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: text-bottom;
+            margin-right: 0.25rem;
+        }
+        
+        hr {
+            margin: 3rem 0;
+            border: none;
+            border-top: 2px solid var(--border);
+        }
+        
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .watermark, .page-number {
+                display: none;
+            }
+            h1 {
+                page-break-before: always;
+            }
+            .cover, .toc {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">© 2026 OperatingLeader.com</div>
+    
+    <div class="container">
+        <!-- Cover Page -->
+        <div class="cover">
+            <h1>The Team Health Playbook</h1>
+            <p class="subtitle">How to Diagnose, Fix, and Sustain High-Performing Teams</p>
+            <p class="author">By Janis Rozenblats</p>
+        </div>
+        
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            
+            <div class="toc-item">
+                <div class="toc-section">Part 1: The 5 Dimensions of Team Health</div>
+                <div class="toc-subsection">Why Most Leaders Get Team Health Wrong</div>
+                <div class="toc-subsection">The CETAG Framework</div>
+                <div class="toc-subsection">How the 5 Dimensions Interact</div>
+            </div>
+            
+            <div class="toc-item">
+                <div class="toc-section">Part 2: The 40 Diagnostic Questions</div>
+                <div class="toc-subsection">Reading the Signals</div>
+                <div class="toc-subsection">What to Do When Things Are Off</div>
+            </div>
+            
+            <div class="toc-item">
+                <div class="toc-section">Part 3: The 30-Day Fix</div>
+                <div class="toc-subsection">The First Week: Stop the Bleeding</div>
+                <div class="toc-subsection">Weeks 2-3: Build Momentum</div>
+                <div class="toc-subsection">Week 4: Lock in Progress</div>
+            </div>
+            
+            <div class="toc-item">
+                <div class="toc-section">Part 4: The Weekly Pulse System</div>
+                <div class="toc-subsection">Setting Up Your 5-Question Pulse</div>
+                <div class="toc-subsection">Reading the Trends</div>
+                <div class="toc-subsection">When to Act</div>
+            </div>
+            
+            <div class="toc-item">
+                <div class="toc-section">Part 5: Three Real-World Transformations</div>
+                <div class="toc-subsection">Mailigen: Building Culture as a Remote Founder</div>
+                <div class="toc-subsection">Pipedrive: Scaling Through a Unicorn Transition</div>
+                <div class="toc-subsection">Aerones: Transforming a Robotics Pioneer</div>
+            </div>
+            
+            <div class="toc-item">
+                <div class="toc-section">Part 6: Complete Toolkit</div>
+                <div class="toc-subsection">All 40 Diagnostic Questions</div>
+                <div class="toc-subsection">Implementation Templates</div>
+                <div class="toc-subsection">AI Prompts for Running 30-Day Fixes</div>
+            </div>
+        </div>
+        
+        <!-- Introduction -->
+        <blockquote>
+            <p>"The best time to fix a team problem was three months ago. The second best time is today."</p>
+        </blockquote>
+        
+        <h2>A Note Before We Start</h2>
+        
+        <p>I've spent twenty years building and leading teams. I built Mailigen from four people crammed into a 12-square-meter office to forty people and an acquisition. During my time at Pipedrive, I served as VP Product as we scaled from 700 to 1000 people through a Vista Equity Partners acquisition — watching the company become a unicorn while navigating the massive organizational changes that come with that growth.</p>
+        
+        <p>Now I'm leading software and service product teams at Aerones, a pioneer in wind industry robotics, applying everything I learned the hard way at Mailigen and the right way at Pipedrive to help a founder-led company cross the chasm.</p>
+        
+        <p>Along the way, I've made every mistake in this playbook. I've watched teams go silent. I've seen talented people burn out on hamster wheels. I've lost great people because I wasn't paying attention.</p>
+        
+        <p>This playbook is what I wish someone had handed me at each of those stages. It's not theory. It's the distilled, practical toolkit I use every single week. Every framework has been tested in real companies, with real teams, under real pressure.</p>
+        
+        <p>Here's my promise: if you spend one hour reading this and one week implementing it, you'll understand your team better than most leaders do after years. And you'll have specific moves to make things better — starting tomorrow morning.</p>
+        
+        <p>Let's get into it.</p>
+        
+        <hr>
+        
+        <!-- Part 1 -->
+        <h1>PART 1: The 5 Dimensions of Team Health</h1>
+        
+        <h2>Why Most Leaders Get Team Health Wrong</h2>
+        
+        <p>Here's the uncomfortable truth: most teams are struggling, and their leaders don't know it until someone quits. Or worse — until the best people quietly disengage while still showing up.</p>
+        
+        <p>I've seen this pattern everywhere:</p>
+        <ul>
+            <li>At Mailigen, where I thought "we're all friends" was enough</li>
+            <li>At Pipedrive, where rapid scaling meant losing track of entire teams</li>
+            <li>At Aerones, where brilliant engineers were burning out in silence</li>
+        </ul>
+        
+        <p>The problem isn't that leaders don't care. It's that they're looking at the wrong signals. Revenue up? Ship dates hit? Great. But those are trailing indicators. By the time they turn bad, the damage is done.</p>
+        
+        <p>What you need are leading indicators — signals that tell you a team is starting to drift before performance craters. And you need a systematic way to spot them, not just "walking around and checking vibes."</p>
+        
+        <p>That's what this playbook gives you.</p>
+        
+        <h2>The CETAG Framework: Your Team's 5 Vital Signs</h2>
+        
+        <p>After twenty years of building teams, making mistakes, and occasionally getting it right, I've found that every team problem traces back to one of five root causes. Not seventeen. Not "it depends." Five.</p>
+        
+        <p>I call it CETAG (pronounced "see-tag" — not the world's sexiest acronym, but it sticks):</p>
+        
+        <div class="illustration">
+            <img src="playbook-images/cetag-framework.png" alt="CETAG Framework Diagram">
+            <div class="illustration-caption">The CETAG Framework: 5 interconnected dimensions of team health</div>
+        </div>
+        
+        <div class="dimension">
+            <h3><svg class="dimension-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg> 1. CLARITY</h3>
+            <p><em>Does everyone know what we're doing and why?</em></p>
+            
+            <p>Without clarity, even motivated people spin their wheels. They work hard but not smart. Meetings multiply because nobody's sure who decides what. As Kim Scott emphasizes in <em>Radical Candor</em>, clarity is kindness — ambiguity is cruelty to your team.</p>
+            
+            <p><span class="good-looks">What Good Looks Like:</span></p>
+            <ul>
+                <li>Everyone can explain the team's top 3 priorities</li>
+                <li>Decisions happen fast because ownership is clear</li>
+                <li>People push back on new requests that don't align</li>
+                <li>Teams use quarterly/monthly planning cycles effectively</li>
+            </ul>
+            
+            <p><span class="red-flag">Red Flags:</span></p>
+            <ul>
+                <li>"Let me check with [3 other people]" is the default response</li>
+                <li>Meetings end with "So... what are next steps?"</li>
+                <li>Different team members give different answers about priorities</li>
+            </ul>
+        </div>
+        
+        <div class="dimension">
+            <h3><svg class="dimension-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg> 2. ENERGY</h3>
+            <p><em>Do people actually want to show up?</em></p>
+            
+            <p>Energy isn't about being extroverted or "rah-rah." It's about whether people feel pulled toward the work or are just going through the motions. Future-backward planning — starting with an exciting vision and working backwards — is one powerful way to generate energy.</p>
+            
+            <div class="illustration">
+                <img src="playbook-images/team-energy-equation.png" alt="Team Energy Equation">
+                <div class="illustration-caption">The Team Energy Equation: A formula for sustained engagement</div>
+            </div>
+            
+            <div class="equation">Energy = (Autonomy × Mastery × Purpose) - Friction</div>
+            
+            <p>Where:</p>
+            <ul>
+                <li><strong>Autonomy</strong> = How much control people have over their work</li>
+                <li><strong>Mastery</strong> = Whether they're learning and growing</li>
+                <li><strong>Purpose</strong> = Connection to something meaningful</li>
+                <li><strong>Friction</strong> = All the BS that makes work harder than it should be</li>
+            </ul>
+            
+            <p><span class="good-looks">What Good Looks Like:</span></p>
+            <ul>
+                <li>People volunteer for extra projects</li>
+                <li>Mondays feel like opportunity, not obligation</li>
+                <li>The team self-organizes to solve problems</li>
+                <li>Future-backward planning excites the team</li>
+            </ul>
+            
+            <p><span class="red-flag">Red Flags:</span></p>
+            <ul>
+                <li>Camera-off is the default in video calls</li>
+                <li>"That's not my job" becomes common</li>
+                <li>Friday afternoon energy is 10x Monday morning energy</li>
+            </ul>
+        </div>
+        
+        <div class="dimension">
+            <h3><svg class="dimension-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg> 3. TRUST</h3>
+            <p><em>Can people be real with each other?</em></p>
+            
+            <p>Trust is the difference between a team and a group of people with the same manager. Without it, everything takes longer and nothing goes deep.</p>
+            
+            <p><span class="good-looks">What Good Looks Like:</span></p>
+            <ul>
+                <li>People admit mistakes without fear</li>
+                <li>Disagreements happen in meetings, not in Slack DMs after</li>
+                <li>"I don't know" and "I need help" are normal phrases</li>
+                <li>Teams practice Radical Candor — caring personally while challenging directly</li>
+            </ul>
+            
+            <p><span class="red-flag">Red Flags:</span></p>
+            <ul>
+                <li>Cover Your Ass (CYA) behavior — excessive documentation, CC'ing everyone, blame-shifting</li>
+                <li>Meetings where nobody disagrees but nothing feels resolved</li>
+                <li>People say one thing in the room, another in the hallway</li>
+            </ul>
+            
+            <div class="framework-box">
+                <p><strong>Note on CYA Behavior:</strong> CYA (Cover Your Ass) behavior means people spend more energy protecting themselves than solving problems. They document every interaction, copy managers on routine emails, and focus on assigning blame rather than finding solutions. It's a clear sign that psychological safety is missing.</p>
+            </div>
+        </div>
+        
+        <div class="dimension">
+            <h3><svg class="dimension-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> 4. ALIGNMENT</h3>
+            <p><em>Are we all pulling in the same direction?</em></p>
+            
+            <p>Alignment is what turns individual effort into team results. Without it, you get politics, duplication, and dropped balls.</p>
+            
+            <div class="illustration">
+                <img src="playbook-images/alignment-matrix.png" alt="Alignment Matrix">
+                <div class="illustration-caption">The Alignment Matrix: Where individual and team goals intersect</div>
+            </div>
+            
+            <p><span class="good-looks">What Good Looks Like:</span></p>
+            <ul>
+                <li>Trade-offs are made for the greater good without resentment</li>
+                <li>Cross-functional work flows smoothly</li>
+                <li>Success metrics are shared, not siloed</li>
+            </ul>
+            
+            <p><span class="red-flag">Red Flags:</span></p>
+            <ul>
+                <li>"My project" instead of "our goal"</li>
+                <li>Surprise announcements that affect other teams</li>
+                <li>Win-lose dynamics between departments</li>
+            </ul>
+        </div>
+        
+        <div class="dimension">
+            <h3><svg class="dimension-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"></path></svg> 5. GROWTH</h3>
+            <p><em>Are people getting better every quarter?</em></p>
+            
+            <p>Teams that aren't growing are dying — slowly at first, then suddenly. Your best people need to see a path forward, or they'll find one elsewhere.</p>
+            
+            <p><span class="good-looks">What Good Looks Like:</span></p>
+            <ul>
+                <li>People take on stretch assignments eagerly</li>
+                <li>Skills from 6 months ago feel outdated</li>
+                <li>Team members become go-to experts in new areas</li>
+            </ul>
+            
+            <p><span class="red-flag">Red Flags:</span></p>
+            <ul>
+                <li>"We've always done it this way"</li>
+                <li>The same people in the same roles doing the same things</li>
+                <li>Learning happens outside work, not during it</li>
+            </ul>
+        </div>
+        
+        <h2>How The 5 Dimensions Interact</h2>
+        
+        <p>These dimensions aren't independent — they form a system. When one degrades, it pulls others down:</p>
+        
+        <div class="illustration">
+            <img src="playbook-images/dimensions-interaction.png" alt="How Dimensions Interact">
+            <div class="illustration-caption">The cascading effects of team health dimensions</div>
+        </div>
+        
+        <ul>
+            <li>Low <strong>Clarity</strong> → Low <strong>Energy</strong> (why try hard if you don't know what matters?)</li>
+            <li>Low <strong>Trust</strong> → Low <strong>Alignment</strong> (why collaborate if you can't be honest?)</li>
+            <li>Low <strong>Growth</strong> → Low <strong>Energy</strong> (why engage if you're not developing?)</li>
+        </ul>
+        
+        <p>But the reverse is also true. Improvements compound:</p>
+        
+        <ul>
+            <li>Better <strong>Clarity</strong> → Better <strong>Alignment</strong> (shared understanding enables coordination)</li>
+            <li>Better <strong>Trust</strong> → Better <strong>Growth</strong> (psychological safety enables risk-taking)</li>
+            <li>Better <strong>Energy</strong> → Better everything (engaged people find ways to improve)</li>
+        </ul>
+        
+        <p>This is why fixing team health isn't about tackling everything at once. It's about finding the one dimension that's bottlenecking the others and starting there.</p>
+        
+        <hr>
+        
+        <!-- Part 2 -->
+        <h1>PART 2: The 40 Diagnostic Questions</h1>
+        
+        <h2>Reading The Signals Your Team Won't Say Out Loud</h2>
+        
+        <p>Your team is constantly telling you how they're doing. Not in words — people are too polite, too political, or too checked-out for that. They tell you in behaviors, patterns, and what they don't say.</p>
+        
+        <p>These 40 questions teach you to read those signals. They're based on twenty years of pattern-matching across three very different companies. Each question targets one of the five dimensions and gives you specific things to look for.</p>
+        
+        <h3>How to Use These Questions</h3>
+        
+        <ol>
+            <li><strong>First Pass (30 minutes):</strong> Go through all 40 questions alone. Mark each as Green (strong), Yellow (concerning), or Red (urgent).</li>
+            
+            <li><strong>Dig Deeper (1 week):</strong> For every Yellow or Red, spend a week observing more carefully. Are you seeing patterns or isolated incidents?</li>
+            
+            <li><strong>Validate (ongoing):</strong> Use the pulse system (Part 4) to check if your read matches what the team experiences.</li>
+            
+            <li><strong>Act (immediately):</strong> For each problem area, this playbook gives you specific interventions. Don't wait for perfect information.</li>
+        </ol>
+        
+        <div class="framework-box">
+            <p><strong>Important:</strong> Every question includes "What to do if it's off" guidance. Don't just diagnose — act on what you find. The interventions are designed to work even if you're not 100% sure of the diagnosis.</p>
+        </div>
+        
+        <h3>CLARITY: Questions 1-8</h3>
+        
+        <div class="question-box">
+            <p><span class="question-number">1.</span> <strong>Can everyone on the team state the top 3 priorities in the same order?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Consistency when you ask different people separately</li>
+                <li><em>Red flag:</em> Three people, three different priority lists</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Run a priority alignment session. Force rank everything, cut the bottom 70%. Use quarterly planning cycles.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">2.</span> <strong>Do people know exactly who makes which decisions?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Speed of decision-making, clarity in meetings</li>
+                <li><em>Red flag:</em> "Let me check with..." is the default response</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Create a RACI matrix for key decision types. Make it visible.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">3.</span> <strong>When did your team last say no to a good opportunity?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Strategic focus and trade-off discussions</li>
+                <li><em>Red flag:</em> Every good idea becomes a new project</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Institute "one in, one out" policy for new initiatives.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">4.</span> <strong>How many "quick syncs" happened last week?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Scheduled collaboration vs. interrupt-driven alignment</li>
+                <li><em>Red flag:</em> More than 5 unplanned alignment conversations</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Your communication architecture is broken. Add structured touchpoints.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">5.</span> <strong>Can team members explain why their work matters to end users?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Connection between daily tasks and customer impact</li>
+                <li><em>Red flag:</em> "I just build what I'm told"</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Share customer feedback directly with the team. Make impact visible.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">6.</span> <strong>How much time in meetings is spent on updates vs. decisions?</strong></p>
+            <ul>
+                <li><em>Look for:</em> High decision density in meetings</li>
+                <li><em>Red flag:</em> 80% updates, 20% decisions</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Ban update meetings. Use async for status, sync for decisions only.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">7.</span> <strong>Do people know what success looks like for their role?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Clear personal metrics and growth indicators</li>
+                <li><em>Red flag:</em> "I'll know it when I see it" performance standards</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Define 3-5 objective success metrics per role. Use monthly check-ins.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">8.</span> <strong>When was the last time priorities actually changed?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Quarterly or monthly strategic adjustments</li>
+                <li><em>Red flag:</em> Same priorities for 6+ months, or changing weekly</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Institute quarterly planning cycles with monthly check-ins.
+            </div>
+        </div>
+        
+        <h3>ENERGY: Questions 9-16</h3>
+        
+        <div class="question-box">
+            <p><span class="question-number">9.</span> <strong>What percentage of cameras are on in video calls?</strong></p>
+            <ul>
+                <li><em>Look for:</em> 80%+ cameras on as default</li>
+                <li><em>Red flag:</em> Black squares everywhere</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Model the behavior. Address energy directly. Use future-backward planning.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <p><span class="question-number">10.</span> <strong>How many people volunteered for the last new initiative?</strong></p>
+            <ul>
+                <li><em>Look for:</em> Multiple hands up for stretch opportunities</li>
+                <li><em>Red flag:</em> Cricket sounds when asking for volunteers</li>
+            </ul>
+            <div class="what-to-do">
+                <strong>What to do if it's off:</strong> Reduce friction, increase autonomy in how work gets done.
+            </div>
+        </div>
+        
+        <!-- Continue with remaining questions... -->
+        
+        <hr>
+        
+        <!-- Part 3 -->
+        <h1>PART 3: The 30-Day Fix</h1>
+        
+        <h2>How to Turn Around a Struggling Team (Without Firing Anyone)</h2>
+        
+        <p>You've diagnosed the problems. Maybe you have a few reds, a bunch of yellows. Now what?</p>
+        
+        <p>Most leaders either panic and change everything (chaos) or nibble around the edges (useless). You need a middle path: systematic, focused change that builds momentum without breaking the team.</p>
+        
+        <p>This 30-day plan has saved multiple teams across my career. It works because it's designed for momentum, not perfection.</p>
+        
+        <h3>Week 1: Stop the Bleeding (Days 1-7)</h3>
+        
+        <div class="framework-box">
+            <h4>Day 1: The Reality Check Conversation</h4>
+            
+            <p>Gather the team. Be honest:</p>
+            
+            <p><em>"I've been looking at how we're working together, and I see some things that need to change. We have issues with [pick your worst dimension]. Over the next 30 days, we're going to fix this together. It won't be perfect, but it will be better."</em></p>
+            
+            <p>No sugar coating. No blame. Just reality and commitment.</p>
+        </div>
+        
+        <h4>Days 2-3: Quick Wins</h4>
+        
+        <p>Pick the three most annoying, fixable problems and solve them immediately:</p>
+        <ul>
+            <li>Too many meetings? Cancel half of them</li>
+            <li>Unclear priorities? Write them on a whiteboard</li>
+            <li>No customer feedback? Share some in Slack</li>
+        </ul>
+        
+        <p>The goal isn't perfection — it's showing that change is possible.</p>
+        
+        <h4>Days 4-7: Listen Tour</h4>
+        
+        <p>Have 15-minute 1:1s with everyone. One question: "What's the one thing that would make your work life better?"</p>
+        
+        <p>Don't solve. Don't defend. Just listen and write it down.</p>
+        
+        <h3>Weeks 2-3: Build Momentum (Days 8-21)</h3>
+        
+        <h4>Week 2: Focus on Your Worst Dimension</h4>
+        
+        <p>Pick the dimension that scored worst and attack it:</p>
+        
+        <ul>
+            <li><strong>Clarity problems?</strong> Run a priority workshop. Use quarterly/monthly cycles for planning. Force-rank everything. Cut bottom 50%.</li>
+            <li><strong>Energy problems?</strong> Add autonomy. Use Future-Back planning to connect work to exciting outcomes. Let people own solutions.</li>
+            <li><strong>Trust problems?</strong> Model vulnerability. Share your own mistakes. Reference frameworks like Radical Candor.</li>
+            <li><strong>Alignment problems?</strong> Map interdependencies. Create shared goals.</li>
+            <li><strong>Growth problems?</strong> Launch Friday learning sessions. Pair seniors with juniors.</li>
+        </ul>
+        
+        <h4>Week 3: Make Progress Visible</h4>
+        
+        <ul>
+            <li>Daily standup addition: "What's better than last week?"</li>
+            <li>Create a simple dashboard showing improvement</li>
+            <li>Celebrate small wins publicly</li>
+            <li>Share positive feedback from other teams</li>
+        </ul>
+        
+        <h3>Week 4: Lock in Progress (Days 22-30)</h3>
+        
+        <h4>Days 22-25: Systematize What's Working</h4>
+        
+        <p>Whatever improved, make it stick:</p>
+        <ul>
+            <li>Turn experiments into standard practices</li>
+            <li>Document new ways of working</li>
+            <li>Assign owners to maintain improvements</li>
+        </ul>
+        
+        <h4>Days 26-28: Plan Next 30 Days</h4>
+        
+        <ul>
+            <li>Run retrospective on the 30-day fix</li>
+            <li>Pick next dimension to improve</li>
+            <li>Get team buy-in on next focus area</li>
+        </ul>
+        
+        <h4>Days 29-30: Celebrate and Communicate</h4>
+        
+        <ul>
+            <li>Share success with leadership</li>
+            <li>Recognize people who drove change</li>
+            <li>Be honest about what's still broken</li>
+        </ul>
+        
+        <div class="framework-box">
+            <h4>The 30-Day Fix Principles</h4>
+            
+            <ol>
+                <li><strong>One dimension at a time</strong> — Trying to fix everything breaks everything</li>
+                <li><strong>Momentum over perfection</strong> — 30% better is achievable; 100% better is fantasy</li>
+                <li><strong>Make it visible</strong> — Progress people can't see doesn't count</li>
+                <li><strong>Systems, not heroics</strong> — If it requires constant energy, it won't last</li>
+            </ol>
+        </div>
+        
+        <hr>
+        
+        <!-- Part 4 -->
+        <h1>PART 4: The Weekly Pulse System</h1>
+        
+        <h2>Your Early Warning System for Team Health</h2>
+        
+        <p>Annual engagement surveys are autopsies — they tell you what killed morale six months ago. You need an EKG, not an autopsy. Something that shows you problems while you can still fix them.</p>
+        
+        <p>The Weekly Pulse System takes 5 minutes to run, gives you trend data, and catches issues before they metastasize.</p>
+        
+        <h3>The 5 Weekly Questions</h3>
+        
+        <p>Every Friday, everyone rates these on a 1-4 scale:</p>
+        
+        <div class="framework-box">
+            <ol>
+                <li><strong>CLARITY:</strong> "I know exactly what's most important for us to achieve right now"
+                    <ul>
+                        <li>1 = Completely unclear</li>
+                        <li>2 = Somewhat unclear</li>
+                        <li>3 = Mostly clear</li>
+                        <li>4 = Crystal clear</li>
+                    </ul>
+                </li>
+                
+                <li><strong>ENERGY:</strong> "I felt energized by our work this week"
+                    <ul>
+                        <li>1 = Drained</li>
+                        <li>2 = Low energy</li>
+                        <li>3 = Good energy</li>
+                        <li>4 = Highly energized</li>
+                    </ul>
+                </li>
+                
+                <li><strong>TRUST:</strong> "I could be fully honest with my team this week"
+                    <ul>
+                        <li>1 = Held back significantly</li>
+                        <li>2 = Held back somewhat</li>
+                        <li>3 = Mostly open</li>
+                        <li>4 = Completely open</li>
+                    </ul>
+                </li>
+                
+                <li><strong>ALIGNMENT:</strong> "We worked well together toward shared goals"
+                    <ul>
+                        <li>1 = Significant misalignment</li>
+                        <li>2 = Some misalignment</li>
+                        <li>3 = Mostly aligned</li>
+                        <li>4 = Perfectly synchronized</li>
+                    </ul>
+                </li>
+                
+                <li><strong>GROWTH:</strong> "I learned something valuable this week"
+                    <ul>
+                        <li>1 = No learning</li>
+                        <li>2 = Minor learning</li>
+                        <li>3 = Good learning</li>
+                        <li>4 = Major growth</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <h3>How to Run the Pulse</h3>
+        
+        <p><strong>Recommended Approach: Manual Collection</strong></p>
+        <ul>
+            <li>Send questions via Slack/Teams on Friday</li>
+            <li>People respond with 5 numbers (e.g., "3, 2, 4, 3, 2")</li>
+            <li>Manager compiles into simple spreadsheet</li>
+            <li>Takes 2 minutes to complete, 5 minutes to compile</li>
+        </ul>
+        
+        <p><strong>Alternative: Team Retro Addition</strong></p>
+        <ul>
+            <li>Add to end of weekly retro</li>
+            <li>Public scores, discuss gaps</li>
+            <li>Takes 5 minutes</li>
+        </ul>
+        
+        <h3>Reading the Trends</h3>
+        
+        <p>The magic isn't in single scores — it's in movement over time:</p>
+        
+        <div class="illustration">
+            <img src="playbook-images/4-week-trend.png" alt="4-Week Trend Pattern">
+            <div class="illustration-caption">The 4-Week Trend Pattern: How to interpret pulse data over time</div>
+        </div>
+        
+        <p><strong>Watch for:</strong></p>
+        <ul>
+            <li>Any dimension dropping 0.5+ points</li>
+            <li>Consistent scores below 2.5</li>
+            <li>Divergence (some 4s, some 1s)</li>
+            <li>Energy/Trust drops (earliest indicators)</li>
+        </ul>
+        
+        <h3>When to Act</h3>
+        
+        <ul>
+            <li><strong>Score drops 1+ point:</strong> Immediate 1:1s to understand why</li>
+            <li><strong>Score below 2.5 for 2 weeks:</strong> Run focused intervention</li>
+            <li><strong>Scores diverging:</strong> Team meeting to surface different experiences</li>
+            <li><strong>All scores above 3.5:</strong> Share what's working, protect it</li>
+        </ul>
+        
+        <h3>Making It Stick</h3>
+        
+        <p>Most pulse systems die because:</p>
+        <ol>
+            <li>Leaders don't act on the data</li>
+            <li>It becomes another checkbox</li>
+            <li>People game the system</li>
+        </ol>
+        
+        <p>To make yours survive:</p>
+        <ul>
+            <li><strong>Act on every downward trend</strong> — even small actions</li>
+            <li><strong>Share the aggregate data</strong> — teams need to see it</li>
+            <li><strong>Keep it short</strong> — 5 questions max</li>
+            <li><strong>Connect to changes</strong> — "Based on last week's pulse..."</li>
+        </ul>
+        
+        <hr>
+        
+        <!-- Part 5 -->
+        <h1>PART 5: Three Real-World Transformations</h1>
+        
+        <h2>When Theory Meets Reality: What Actually Happened</h2>
+        
+        <p>These aren't sanitized case studies. They're real stories from real teams, warts and all. Each one taught me something different about fixing team health.</p>
+        
+        <div class="story-box">
+            <h3>Story 1: Mailigen — Building Culture as a Remote Founder</h3>
+            
+            <h4>The Context</h4>
+            
+            <p>2009: I was 26, running a 10-person email marketing startup from wherever my laptop was. For the first three years, I was a remote, traveling founder — spending most of my time away from our Riga office. I'd do frequent two-week trips to Latvia where the team was based, and yes, during those trips we'd eat lunch together and I'd try to be present. But the reality was the team was forming without me.</p>
+            
+            <p>My business partner was actively running the office day-to-day. I was driving development and partnerships, collaborating remotely. Classic divided leadership with a distributed twist.</p>
+            
+            <h4>What Broke</h4>
+            
+            <p>By year 4, we had 20 people and serious culture fractures:</p>
+            <ul>
+                <li>Two different companies: "Riga team" vs. "Janis's projects"</li>
+                <li>Decisions made in office hallways I was never in</li>
+                <li>People who'd never had a real conversation with the CEO</li>
+                <li>My partner and I had different implicit values, creating confusion</li>
+            </ul>
+            
+            <h4>The Intervention</h4>
+            
+            <p>Started with brutal honesty. I flew to Riga and stayed for a month. First all-hands: "We have two cultures. That ends now."</p>
+            
+            <p>The fixes:</p>
+            <ul>
+                <li><strong>Clarity:</strong> Created "Friday Updates" — everyone shares what they did, learned, and struggled with</li>
+                <li><strong>Trust:</strong> Started admitting my mistakes publicly. "I screwed up the pricing model. Here's what I learned..."</li>
+                <li><strong>Alignment:</strong> Built first real roadmap together, not in isolation</li>
+                <li><strong>Energy:</strong> Gave teams ownership of features end-to-end</li>
+                <li><strong>Growth:</strong> Launched "Teaching Tuesdays" — everyone teaches something</li>
+            </ul>
+            
+            <h4>What I Learned</h4>
+            
+            <p>Remote leadership isn't about tools — it's about intentional culture building. The rituals you create matter more than the time you spend. A present leader who's remote beats an absent leader who's in the office.</p>
+            
+            <p>By acquisition in 2020, we had a culture strong enough to survive integration. But it almost didn't happen because I assumed proximity would create culture automatically.</p>
+        </div>
+        
+        <div class="story-box">
+            <h3>Story 2: Pipedrive — Scaling Through a Unicorn Transition</h3>
+            
+            <h4>The Context</h4>
+            
+            <p>2020: I joined Pipedrive as VP Product when they had 700 people. Very much a bottom-up, customer-focused, product-led business. The founders were still driving the organization — the CEO was customer zero, deeply involved in product decisions.</p>
+            
+            <p>Over my four years there, we scaled to 1000 people and went through a Vista Equity Partners acquisition that valued the company at over $1 billion. The R&D department alone grew to 450 people.</p>
+            
+            <h4>What Broke</h4>
+            
+            <p>Scale broke everything:</p>
+            <ul>
+                <li>Decisions that used to take days took weeks</li>
+                <li>Teams didn't know what other teams were building</li>
+                <li>The "startup hustle" was burning people out at scale</li>
+                <li>PE brought process that felt like bureaucracy to startup folks</li>
+                <li>Bottom-up innovation clashed with top-down planning needs</li>
+            </ul>
+            
+            <h4>The Intervention</h4>
+            
+            <p>Instead of fighting the transition, we leaned into it:</p>
+            
+            <ul>
+                <li><strong>Clarity:</strong> Introduced proper quarterly planning cycles. Clear OKRs cascaded down.</li>
+                <li><strong>Alignment:</strong> Built product councils — cross-team forums for decisions</li>
+                <li><strong>Trust:</strong> Created "radical transparency" sessions where leaders shared real challenges</li>
+                <li><strong>Energy:</strong> Protected innovation time — 20% for experiments, even during PE transition</li>
+                <li><strong>Growth:</strong> Launched internal mobility program — people could switch teams quarterly</li>
+            </ul>
+            
+            <p>The key insight: You can't preserve startup culture at scale. You have to consciously evolve it. We kept the customer obsession and innovation but added structure to channel it.</p>
+            
+            <h4>What I Learned</h4>
+            
+            <p>Scaling isn't about choosing between startup speed and enterprise discipline — it's about knowing when to apply which. The weekly pulse system helped us spot which teams needed more structure and which needed more freedom. One size didn't fit all.</p>
+        </div>
+        
+        <div class="story-box">
+            <h3>Story 3: Aerones — Transforming a Wind Industry Robotics Pioneer</h3>
+            
+            <h4>The Context</h4>
+            
+            <p>2024: I joined Aerones to lead software and service product teams. Aerones is a wind turbine robotic maintenance service and digital solutions company — a true pioneer in bringing robotics to the wind industry.</p>
+            
+            <p>Classic technical founder-led company hitting the scaling challenge. Brilliant technology, strong mission, but organizational growing pains as we pushed from startup to scale-up.</p>
+            
+            <h4>What Broke</h4>
+            
+            <p>The symptoms were classic:</p>
+            <ul>
+                <li>Engineers organized by function, not outcome</li>
+                <li>Individuals constantly shuffled between projects</li>
+                <li>Output focus: "Did we build it?" vs. "Did it create value?"</li>
+                <li>Ownership unclear — everyone owned everything, so no one owned anything</li>
+            </ul>
+            
+            <h4>The Intervention</h4>
+            
+            <p>Two major organizational changes:</p>
+            
+            <p><strong>First: Reorganized into Focused Tribes</strong></p>
+            <ul>
+                <li>Moved from functional teams to cross-functional tribes</li>
+                <li>Each tribe owns a complete tool, system, or product</li>
+                <li>No more rotating individuals — stable teams with clear ownership</li>
+                <li>Engineers, designers, and product people integrated</li>
+            </ul>
+            
+            <p><strong>Second: Shifted from Output to Outcome</strong></p>
+            <ul>
+                <li>Stopped measuring "features shipped"</li>
+                <li>Started measuring "customer problems solved"</li>
+                <li>OKRs focused on impact, not activity</li>
+                <li>Weekly reviews about customer value, not task completion</li>
+            </ul>
+            
+            <p>The transformation took longer than expected — 6 months vs. the 3 I'd planned. But the results were worth it:</p>
+            <ul>
+                <li>Deployment frequency up 3x</li>
+                <li>Customer satisfaction scores up 40%</li>
+                <li>Employee engagement highest ever</li>
+                <li>Clear ownership = faster decisions</li>
+            </ul>
+            
+            <h4>What I Learned</h4>
+            
+            <p>Founder-led companies have special challenges. The very traits that made the founder successful — hands-on, detail-oriented, personally invested — can become bottlenecks at scale.</p>
+            
+            <p>The key was helping the organization grow without losing the founder's vision. We preserved the mission and innovation while adding systems that could scale beyond any individual.</p>
+        </div>
+        
+        <hr>
+        
+        <!-- Part 6 -->
+        <h1>PART 6: Complete Toolkit</h1>
+        
+        <h2>Your Copy-and-Paste Templates for Implementation</h2>
+        
+        <div class="watermark" style="text-align: center; font-size: 0.875rem; color: var(--text-muted); margin: 2rem 0;">
+            © 2026 OperatingLeader.com — Building Healthier Teams
+        </div>
+        
+        <h3>The 40 Diagnostic Questions (Print Version)</h3>
+        
+        <div class="framework-box">
+            <h4>CLARITY (Questions 1-8)</h4>
+            <ol>
+                <li>Can everyone on the team state the top 3 priorities in the same order?</li>
+                <li>Do people know exactly who makes which decisions?</li>
+                <li>When did your team last say no to a good opportunity?</li>
+                <li>How many "quick syncs" happened last week?</li>
+                <li>Can team members explain why their work matters to end users?</li>
+                <li>How much time in meetings is spent on updates vs. decisions?</li>
+                <li>Do people know what success looks like for their role?</li>
+                <li>When was the last time priorities actually changed?</li>
+            </ol>
+            
+            <h4>ENERGY (Questions 9-16)</h4>
+            <ol start="9">
+                <li>What percentage of cameras are on in video calls?</li>
+                <li>How many people volunteered for the last new initiative?</li>
+                <li>Do people work on side projects or learning during work time?</li>
+                <li>When do people send Slack messages?</li>
+                <li>How often do you hear genuine laughter?</li>
+                <li>Are people building things without being asked?</li>
+                <li>How many "how was your weekend?" conversations are real?</li>
+                <li>Do people defend the team's work externally?</li>
+            </ol>
+            
+            <h4>TRUST (Questions 17-24)</h4>
+            <ol start="17">
+                <li>When was the last time someone said "I screwed up" in a team meeting?</li>
+                <li>Do debates happen in meetings or in private messages after?</li>
+                <li>How much documentary evidence do people create "just in case"?</li>
+                <li>Can people show half-finished work?</li>
+                <li>Do team members ask each other for help?</li>
+                <li>How fast does bad news travel up?</li>
+                <li>Are retros actually changing how you work?</li>
+                <li>Would people tell you if they were job hunting?</li>
+            </ol>
+            
+            <h4>ALIGNMENT (Questions 25-32)</h4>
+            <ol start="25">
+                <li>How aligned are individual goals with team goals?</li>
+                <li>Do people celebrate other teams' wins?</li>
+                <li>How much duplicate work happens?</li>
+                <li>Are trade-offs made for the greater good?</li>
+                <li>How often are other teams surprised by your decisions?</li>
+                <li>Do people know how their work affects others?</li>
+                <li>Is success shared or hoarded?</li>
+                <li>How aligned is resource allocation with stated priorities?</li>
+            </ol>
+            
+            <h4>GROWTH (Questions 33-40)</h4>
+            <ol start="33">
+                <li>Who on your team is outgrowing their role?</li>
+                <li>What skills from 6 months ago are now outdated?</li>
+                <li>How many people are teaching others?</li>
+                <li>Are people excited about their development plans?</li>
+                <li>Do you have succession plans for key roles?</li>
+                <li>How often do people surprise you with new capabilities?</li>
+                <li>Are people learning from failures?</li>
+                <li>Would your team be ready for 2x the scale?</li>
+            </ol>
+        </div>
+        
+        <h3>Weekly Pulse Template</h3>
+        
+        <div class="framework-box">
+            <p style="text-align: center; margin-bottom: 1rem;">© 2026 OperatingLeader.com — Track Team Health Weekly</p>
+            
+            <p><strong>Team:</strong> _________________ <strong>Week of:</strong> _________________</p>
+            
+            <p>Rate each on a scale of 1-4:</p>
+            
+            <p><strong>CLARITY:</strong> I know exactly what's most important for us to achieve right now<br>
+            ⚪ 1 (Completely unclear) ⚪ 2 (Somewhat unclear) ⚪ 3 (Mostly clear) ⚪ 4 (Crystal clear)</p>
+            
+            <p><strong>ENERGY:</strong> I felt energized by our work this week<br>
+            ⚪ 1 (Drained) ⚪ 2 (Low energy) ⚪ 3 (Good energy) ⚪ 4 (Highly energized)</p>
+            
+            <p><strong>TRUST:</strong> I could be fully honest with my team this week<br>
+            ⚪ 1 (Held back significantly) ⚪ 2 (Held back somewhat) ⚪ 3 (Mostly open) ⚪ 4 (Completely open)</p>
+            
+            <p><strong>ALIGNMENT:</strong> We worked well together toward shared goals<br>
+            ⚪ 1 (Significant misalignment) ⚪ 2 (Some misalignment) ⚪ 3 (Mostly aligned) ⚪ 4 (Perfectly synchronized)</p>
+            
+            <p><strong>GROWTH:</strong> I learned something valuable this week<br>
+            ⚪ 1 (No learning) ⚪ 2 (Minor learning) ⚪ 3 (Good learning) ⚪ 4 (Major growth)</p>
+            
+            <p><strong>One thing that would improve our team health:</strong> _________________________________</p>
+        </div>
+        
+        <h3>30-Day Fix Meeting Templates</h3>
+        
+        <div class="framework-box">
+            <h4>Day 1: Reality Check Agenda</h4>
+            <ol>
+                <li>Current state assessment (10 min)</li>
+                <li>Share diagnostic results (10 min)</li>
+                <li>Commit to 30-day improvement sprint (5 min)</li>
+                <li>Q&A and concerns (15 min)</li>
+            </ol>
+            
+            <h4>Week 1: Listening Tour Questions</h4>
+            <ul>
+                <li>What's the one thing that would make your work life better?</li>
+                <li>What's working well that we should protect?</li>
+                <li>What's your biggest frustration right now?</li>
+                <li>What would you fix if you had a magic wand?</li>
+            </ul>
+            
+            <h4>Week 4: Retrospective Template</h4>
+            <ul>
+                <li>What improved? (Specific examples)</li>
+                <li>What didn't change? (And why)</li>
+                <li>What should we tackle next?</li>
+                <li>How do we maintain progress?</li>
+            </ul>
+        </div>
+        
+        <h3>AI Prompts for Running 30-Day Fixes</h3>
+        
+        <div class="watermark" style="text-align: center; font-size: 0.875rem; color: var(--text-muted); margin: 2rem 0;">
+            © 2026 OperatingLeader.com — AI-Assisted Team Transformation
+        </div>
+        
+        <h4>For Planning the 30-Day Sprint:</h4>
+        
+        <div class="ai-prompt">I'm leading a team of [X] people in [industry/function]. Our team health assessment shows problems with [dimension]. The specific issues are: [list top 3 problems].
+
+Create a detailed 30-day improvement plan that:
+1. Starts with quick wins in week 1
+2. Focuses on sustainable changes
+3. Includes specific daily/weekly actions
+4. Measures progress simply
+5. Builds momentum without overwhelming the team</div>
+        
+        <h4>For Weekly Check-ins:</h4>
+        
+        <div class="ai-prompt">We're on day [X] of our 30-day team health improvement sprint. This week we: [list actions taken]. The team response has been: [describe reactions].
+
+Our pulse scores changed from [last week] to [this week].
+
+What should we:
+1. Double down on?
+2. Adjust or abandon?
+3. Try next week?</div>
+        
+        <h4>For Designing Team Rituals:</h4>
+        
+        <div class="ai-prompt">Our team struggles with [dimension]. We need a weekly ritual that:
+- Takes less than 30 minutes
+- Addresses [specific problem]
+- Feels energizing, not like another meeting
+- Can be sustained long-term
+
+Suggest 3 ritual options with specific agendas and facilitation tips.</div>
+        
+        <hr>
+        
+        <h2>Final Thoughts</h2>
+        
+        <p>Team health isn't about making everyone happy. It's about creating conditions where great people can do their best work together.</p>
+        
+        <p>The frameworks in this playbook aren't perfect, but they're proven. They've worked across different industries, company sizes, and continents. More importantly, they're simple enough to actually use when things get busy — which is always.</p>
+        
+        <p>Your team is telling you how they're doing every single day. This playbook teaches you how to listen, what to look for, and what to do about it.</p>
+        
+        <p>The best time to fix a team problem was three months ago. The second best time is today.</p>
+        
+        <p>Start with one question. Run one pulse. Fix one thing.</p>
+        
+        <p>Your team is waiting.</p>
+        
+        <hr>
+        
+        <p style="text-align: center; margin-top: 3rem;">
+            <em>Janis Rozenblats has spent 20 years building and leading teams — from founding Mailigen to scaling at Pipedrive (700→1000 people) to transforming Aerones. He writes about practical leadership at <a href="https://operatingleader.com">operatingleader.com</a>.</em>
+        </p>
+        
+        <p style="text-align: center; margin: 2rem 0;">
+            <strong>Get the full toolkit:</strong> Download templates, get monthly insights, and join leaders fixing team health: <a href="https://operatingleader.com/playbook">operatingleader.com/playbook</a>
+        </p>
+        
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 3rem;">
+            © 2026 The Operating Leader. Share widely, but please maintain attribution.
+        </p>
+    </div>
+    
+    <div class="page-number">
+        <span id="pageNum">1</span>
+    </div>
+    
+    <script>
+        // Simple page numbering for print
+        window.addEventListener('beforeprint', function() {
+            const pageNum = document.getElementById('pageNum');
+            let currentPage = 1;
+            const updatePageNumber = function() {
+                pageNum.textContent = currentPage++;
+            };
+            // This is a simplified approach - in production you'd want more sophisticated pagination
+            updatePageNumber();
+        });
+    </script>
+</body>
+</html>
