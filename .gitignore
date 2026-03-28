@@ -20,5 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Deployment files
+operatingleader-deploy.zip
+deploy-to-cloudflare.sh
+
 # jetbrains setting folder
 .idea/
