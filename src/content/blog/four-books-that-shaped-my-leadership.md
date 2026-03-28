@@ -6,6 +6,8 @@ author: "Janis Rozenblats"
 tags: ["leadership", "books", "entrepreneurship", "team-building"]
 ---
 
+![Four Books That Shaped My Leadership Philosophy](/blog/four-books-that-shaped-my-leadership.png)
+
 Over twenty years of building teams and leading companies, certain books hit you at exactly the right moment. They don't just inform — they rewire how you see leadership entirely.
 
 These four books shaped my approach to leadership more than any MBA program or consulting framework ever could. Each came at a different stage of my journey, from founding my first company to scaling through acquisition to navigating private equity transitions.
