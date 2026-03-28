@@ -18,7 +18,7 @@ I wasn't surprised. I'd seen it happen at Aerones. And honestly? It changed how 
 
 ## The Pattern I Kept Seeing
 
-I've been building digital products since 2002. Agencies. Mailigen, which I co-founded and grew to €2M. Pipedrive as VP Product, watching teams burn entire quarters on prototypes nobody used.
+I've been building digital products since 2002. Agencies. Mailigen, which I co-founded and grew to a few million. Pipedrive as VP Product, watching teams burn entire quarters on prototypes nobody used.
 
 The pattern was always the same: great idea → 3 months of development → user feedback: "actually, we need something different." $50,000 and a quarter gone. Every single time.
 
@@ -30,11 +30,11 @@ Then something shifted.
 
 ## What Actually Changed at Aerones
 
-Last month we had an idea for a customer portal. Old me would've written a requirements doc, put it in the backlog, waited for dev bandwidth.
+At the end of 2025 we had an idea for a customer portal. Old me would've written a requirements doc, passed it on to the team, put it in the backlog, and waited for dev bandwidth.
 
-Instead: idea on Thursday afternoon, working demo in front of actual customers by Friday morning. They clicked around, told us what sucked, we fixed it over lunch.
+Instead: idea on Wednesday afternoon, working demo in front of actual customers by Friday morning. They clicked around, told us what sucked, we fixed it over lunch.
 
-I built it. Not a developer — a product leader who'd been using AI building tools for a few months.
+I built it, and I'm not a developer — a product leader who'd been using AI building tools for a few months.
 
 The math hit me: we'd just run a full validation cycle in 18 hours that would've taken 6 weeks. Not because I'm clever. Because the tool did what used to require a developer.
 
@@ -52,7 +52,7 @@ Your PM has product instincts sharpened by daily customer conversations. Your de
 
 Now they can.
 
-That backlog feature my CTO's PM shipped in a weekend? It had been prioritized, deprioritized, re-scoped, and argued over for six months. Six months of meetings. One weekend of building.
+That backlog feature my CTO friend's PM shipped in a weekend? It had been prioritized, deprioritized, re-scoped, and argued over for six months. Six months of meetings. One weekend of building.
 
 This isn't about replacing developers. The best ones on my team now spend their time on the 20% that actually needs serious engineering — the hard infrastructure, the algorithmic stuff, the things that break at scale. That's a better use of them than writing authentication flows for the 500th time.
 
@@ -88,4 +88,4 @@ The ones who don't will keep running the same expensive, slow cycle I ran for 20
 
 ---
 
-*Disclosure: I use Lovable and have a referral link ([here](https://lovable.dev/invite/4ZD2J2U)) if you want extra credits to start. But any of the tools will do. Just pick one and build something this week.*
+*Disclosure: I use Lovable and have a referral link ([here](https://lovable.dev/invite/4ZD2J2U)) if you want 10 extra credits to start. But any of the tools will do. Just pick one and build something this week.*
