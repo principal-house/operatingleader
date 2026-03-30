@@ -1,0 +1,166 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title="Welcome to The Operating Leader" description="Your subscription is confirmed!" />
+		<style>
+			main {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 3em 1em;
+				text-align: center;
+			}
+			.confirm-container {
+				max-width: 540px;
+				margin: 0 auto;
+				padding: 4em 0;
+			}
+			.checkmark {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 80px;
+				height: 80px;
+				margin: 0 auto 1.5em;
+				background: rgba(201, 165, 90, 0.1);
+				border: 2px solid var(--accent);
+				border-radius: 50%;
+				color: var(--accent);
+			}
+			.checkmark svg {
+				width: 40px;
+				height: 40px;
+			}
+			h1 {
+				font-size: 2em;
+				margin-bottom: 0.5em;
+			}
+			.lead {
+				font-size: 1.25em;
+				line-height: 1.6;
+				color: var(--text);
+				margin-bottom: 2em;
+			}
+			.details {
+				font-size: 0.95em;
+				line-height: 1.8;
+				color: var(--text-muted);
+				margin-bottom: 2.5em;
+			}
+			.details strong {
+				color: var(--text);
+			}
+			.next-steps {
+				background: var(--bg-raised);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				padding: 2em;
+				margin: 2.5em 0;
+				text-align: left;
+			}
+			.next-steps h3 {
+				font-size: 1.1em;
+				margin-bottom: 0.8em;
+			}
+			.next-steps ul {
+				margin: 0;
+				padding-left: 1.5em;
+			}
+			.next-steps li {
+				margin-bottom: 0.6em;
+				color: var(--text-muted);
+			}
+			.cta-buttons {
+				display: flex;
+				gap: 1em;
+				justify-content: center;
+				margin-top: 2em;
+			}
+			.btn {
+				padding: 0.75em 1.5em;
+				border-radius: 6px;
+				text-decoration: none;
+				font-weight: 600;
+				font-size: 0.9em;
+				transition: all 0.15s ease;
+			}
+			.btn-primary {
+				background: var(--accent);
+				color: #1a1a1a;
+			}
+			.btn-primary:hover {
+				opacity: 0.85;
+			}
+			.btn-secondary {
+				background: transparent;
+				color: var(--text);
+				border: 1px solid var(--border);
+			}
+			.btn-secondary:hover {
+				background: var(--bg-raised);
+			}
+			.footer-note {
+				font-size: 0.85em;
+				color: var(--text-faint);
+				margin-top: 3em;
+			}
+			@media (max-width: 480px) {
+				.cta-buttons {
+					flex-direction: column;
+				}
+				.btn {
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="confirm-container">
+				<div class="checkmark">
+					<svg fill="currentColor" viewBox="0 0 24 24">
+						<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+					</svg>
+				</div>
+				
+				<h1>Welcome to The Operating Leader!</h1>
+				
+				<p class="lead">
+					Your subscription is confirmed. You're now part of a community of leaders who build teams that actually work.
+				</p>
+				
+				<div class="details">
+					Every week, I'll send you <strong>one actionable insight</strong> on scaling teams, 
+					backed by 20+ years of building companies — from startup to acquisition to PE transition.
+				</div>
+				
+				<div class="next-steps">
+					<h3>What happens next:</h3>
+					<ul>
+						<li>You'll get your first newsletter this week</li>
+						<li>Each email focuses on one specific challenge leaders face</li>
+						<li>Everything I share has been tested in real companies</li>
+						<li>No fluff, just what actually works</li>
+					</ul>
+				</div>
+				
+				<div class="cta-buttons">
+					<a href="/blog" class="btn btn-primary">Read Recent Articles</a>
+					<a href="/playbook" class="btn btn-secondary">Check Out the Playbook</a>
+				</div>
+				
+				<p class="footer-note">
+					Questions? Just reply to any newsletter — I read everything.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
