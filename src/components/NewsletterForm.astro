@@ -3,8 +3,8 @@ interface Props {
 	compact?: boolean;
 }
 const { compact = false } = Astro.props;
-const LISTMONK_URL = "https://mail.principal.house";
-const LIST_UUID = "47b7f187-fcf5-40ad-a9ae-adc6c80e5f69"; // OperatingLeader list
+const MAUTIC_URL = "https://mail.principal.house";
+const SEGMENT_ID = 1; // OperatingLeader segment
 ---
 
 <div class="nl-wrapper">
@@ -18,7 +18,7 @@ const LIST_UUID = "47b7f187-fcf5-40ad-a9ae-adc6c80e5f69"; // OperatingLeader lis
 	<p class="nl-message" id="nl-message" style="display:none;"></p>
 </div>
 
-<script define:vars={{ LISTMONK_URL, LIST_UUID }}>
+<script define:vars={{ MAUTIC_URL, SEGMENT_ID }}>
 	const form = document.getElementById('nl-form');
 	const msg = document.getElementById('nl-message');
 	const btn = document.getElementById('nl-btn');
@@ -33,16 +33,26 @@ const LIST_UUID = "47b7f187-fcf5-40ad-a9ae-adc6c80e5f69"; // OperatingLeader lis
 		btn.textContent = '...';
 
 		try {
-			const res = await fetch(`${LISTMONK_URL}/subscription/form`, {
+			const res = await fetch(`${MAUTIC_URL}/api/subscribe.php`, {
 				method: 'POST',
-				mode: 'no-cors',
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				body: new URLSearchParams({ email, l: LIST_UUID, nonce: '' }),
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ 
+					email: email,
+					segment_id: SEGMENT_ID,
+					brand: 'operatingleader'
+				}),
 			});
-			form.style.display = 'none';
-			msg.style.display = 'block';
-			msg.textContent = '🎉 Check your inbox to confirm your subscription!';
-			msg.className = 'nl-message nl-success';
+			
+			const data = await res.json();
+			
+			if (res.ok && data.success) {
+				form.style.display = 'none';
+				msg.style.display = 'block';
+				msg.textContent = '🎉 Check your inbox to confirm your subscription!';
+				msg.className = 'nl-message nl-success';
+			} else {
+				throw new Error(data.error || 'Subscription failed');
+			}
 		} catch (err) {
 			msg.style.display = 'block';
 			msg.textContent = 'Something went wrong. Please try again.';
