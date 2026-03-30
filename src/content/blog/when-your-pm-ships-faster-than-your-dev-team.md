@@ -16,7 +16,7 @@ I wasn't surprised. I'd seen it happen at Aerones. And honestly? It changed how 
 
 ---
 
-## The Pattern I Kept Seeing
+## The Pattern I Kept Seeing 
 
 I've been building digital products since 2002. Agencies. Mailigen, which I co-founded and grew to a few million. Pipedrive as VP Product, watching teams burn entire quarters on prototypes nobody used.
 
