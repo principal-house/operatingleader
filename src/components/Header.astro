@@ -6,6 +6,17 @@ import HeaderLink from './HeaderLink.astro';
 <header>
 	<nav>
 		<a href="/" class="logo"><img src="/images/ol-logo.png" alt="The Operating Leader" class="logo-img" /> The Operating Leader</a>
+		
+		<!-- Mobile menu button -->
+		<button class="mobile-menu-button" aria-label="Menu" aria-expanded="false">
+			<svg class="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+				<path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			</svg>
+			<svg class="close-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="display: none;">
+				<path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			</svg>
+		</button>
+
 		<div class="nav-links">
 			<HeaderLink href="/blog">Articles</HeaderLink>
 			<HeaderLink href="/playbook">Playbook</HeaderLink>
@@ -17,6 +28,42 @@ import HeaderLink from './HeaderLink.astro';
 		</div>
 	</nav>
 </header>
+
+<script>
+	const menuButton = document.querySelector('.mobile-menu-button');
+	const navLinks = document.querySelector('.nav-links');
+	const menuIcon = document.querySelector('.menu-icon');
+	const closeIcon = document.querySelector('.close-icon');
+
+	menuButton?.addEventListener('click', () => {
+		const isOpen = navLinks?.classList.contains('mobile-open');
+		
+		if (isOpen) {
+			navLinks?.classList.remove('mobile-open');
+			menuIcon!.style.display = 'block';
+			closeIcon!.style.display = 'none';
+			menuButton?.setAttribute('aria-expanded', 'false');
+		} else {
+			navLinks?.classList.add('mobile-open');
+			menuIcon!.style.display = 'none';
+			closeIcon!.style.display = 'block';
+			menuButton?.setAttribute('aria-expanded', 'true');
+		}
+	});
+
+	// Close menu when clicking on a link (mobile)
+	const navItems = document.querySelectorAll('.nav-links a');
+	navItems.forEach(item => {
+		item.addEventListener('click', () => {
+			if (window.innerWidth <= 768) {
+				navLinks?.classList.remove('mobile-open');
+				menuIcon!.style.display = 'block';
+				closeIcon!.style.display = 'none';
+				menuButton?.setAttribute('aria-expanded', 'false');
+			}
+		});
+	});
+</script>
 
 <style>
 	header {
@@ -36,6 +83,7 @@ import HeaderLink from './HeaderLink.astro';
 		margin: 0 auto;
 		padding: 0 1em;
 		height: 56px;
+		position: relative;
 	}
 	.logo {
 		font-size: 0.95em;
@@ -43,10 +91,31 @@ import HeaderLink from './HeaderLink.astro';
 		color: var(--text);
 		text-decoration: none;
 		letter-spacing: -0.02em;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		z-index: 102;
 	}
-	.logo { display: flex; align-items: center; gap: 0.5em; }
 	.logo-img { width: 28px; height: 28px; border-radius: 4px; }
 	.logo:hover { color: var(--accent); }
+	
+	/* Mobile menu button */
+	.mobile-menu-button {
+		display: none;
+		background: none;
+		border: none;
+		color: var(--text);
+		cursor: pointer;
+		padding: 0.5em;
+		margin-right: -0.5em;
+		z-index: 102;
+	}
+	.mobile-menu-button svg {
+		stroke: currentColor;
+		fill: none;
+	}
+	
+	/* Desktop nav links */
 	.nav-links {
 		display: flex;
 		align-items: center;
@@ -63,4 +132,70 @@ import HeaderLink from './HeaderLink.astro';
 		color: var(--text);
 	}
 	.social { display: flex; align-items: center; }
+	
+	/* Mobile styles */
+	@media (max-width: 768px) {
+		.logo {
+			font-size: 0;
+		}
+		.logo-img {
+			width: 32px;
+			height: 32px;
+		}
+		
+		.mobile-menu-button {
+			display: block;
+		}
+		
+		.nav-links {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: min(80%, 300px);
+			background: var(--bg);
+			border-left: 1px solid var(--border);
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 6em 2em 2em;
+			gap: 1em;
+			transform: translateX(100%);
+			transition: transform 0.3s ease;
+			z-index: 101;
+			overflow-y: auto;
+		}
+		
+		.nav-links.mobile-open {
+			transform: translateX(0);
+		}
+		
+		.nav-links a {
+			font-size: 1.1em;
+			padding: 0.5em 0;
+			width: 100%;
+			display: block;
+		}
+		
+		.social {
+			margin-top: 2em;
+			padding-top: 2em;
+			border-top: 1px solid var(--border);
+			width: 100%;
+		}
+		
+		/* Overlay */
+		.nav-links.mobile-open::before {
+			content: '';
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: -1;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		nav {
+			padding: 0 0.75em;
+		}
+	}
 </style>
