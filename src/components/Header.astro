@@ -63,6 +63,19 @@ import HeaderLink from './HeaderLink.astro';
 			}
 		});
 	});
+	
+	// Close menu when clicking outside
+	document.addEventListener('click', (e) => {
+		if (navLinks?.classList.contains('mobile-open')) {
+			const target = e.target as HTMLElement;
+			if (!navLinks.contains(target) && !menuButton?.contains(target)) {
+				navLinks.classList.remove('mobile-open');
+				menuIcon!.style.display = 'block';
+				closeIcon!.style.display = 'none';
+				menuButton?.setAttribute('aria-expanded', 'false');
+			}
+		}
+	});
 </script>
 
 <style>
@@ -151,18 +164,18 @@ import HeaderLink from './HeaderLink.astro';
 			position: fixed;
 			top: 0;
 			right: 0;
-			bottom: 0;
+			height: 100vh;
+			height: 100dvh; /* Dynamic viewport height for mobile */
 			width: min(80%, 300px);
 			background: var(--bg);
 			border-left: 1px solid var(--border);
 			flex-direction: column;
 			align-items: flex-start;
-			padding: 6em 2em 2em;
-			gap: 1em;
+			padding: 5em 2em 2em;
+			gap: 1.5em;
 			transform: translateX(100%);
 			transition: transform 0.3s ease;
 			z-index: 101;
-			overflow-y: auto;
 		}
 		
 		.nav-links.mobile-open {
@@ -171,9 +184,10 @@ import HeaderLink from './HeaderLink.astro';
 		
 		.nav-links a {
 			font-size: 1.1em;
-			padding: 0.5em 0;
+			padding: 0.75em 0;
 			width: 100%;
 			display: block;
+			color: var(--text);
 		}
 		
 		.social {
@@ -183,13 +197,16 @@ import HeaderLink from './HeaderLink.astro';
 			width: 100%;
 		}
 		
-		/* Overlay */
-		.nav-links.mobile-open::before {
+		/* Dark overlay behind menu */
+		body:has(.nav-links.mobile-open)::before {
 			content: '';
 			position: fixed;
-			inset: 0;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
 			background: rgba(0, 0, 0, 0.5);
-			z-index: -1;
+			z-index: 100;
 		}
 	}
 	
