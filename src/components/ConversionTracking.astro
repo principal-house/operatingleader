@@ -1,0 +1,114 @@
+---
+// Conversion tracking component for OperatingLeader
+---
+
+<script>
+  // Wait for Umami to load
+  function waitForUmami(callback) {
+    if (typeof window.umami !== 'undefined') {
+      callback();
+    } else {
+      setTimeout(() => waitForUmami(callback), 100);
+    }
+  }
+
+  // Initialize conversion tracking when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    waitForUmami(function() {
+      
+      // Track newsletter signup clicks
+      const newsletterButtons = document.querySelectorAll('a[href*="subscribe"], button[class*="newsletter"], input[type="email"]');
+      newsletterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const articleTitle = document.querySelector('h1')?.textContent || 'unknown';
+          window.umami.track('newsletter-signup-click', {
+            source: 'blog-article',
+            article: articleTitle.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+            location: this.closest('section')?.className || 'unknown'
+          });
+        });
+      });
+
+      // Track Team Health Playbook CTA clicks
+      const playbookButtons = document.querySelectorAll('a[href*="playbook"]');
+      playbookButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const articleTitle = document.querySelector('h1')?.textContent || 'unknown';
+          window.umami.track('playbook-cta-click', {
+            article: articleTitle.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+            location: this.closest('section')?.className || 'cta-section',
+            buttonText: this.textContent.trim()
+          });
+        });
+      });
+
+      // Track social media link clicks
+      const socialLinks = document.querySelectorAll('a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="x.com"]');
+      socialLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const platform = this.href.includes('linkedin') ? 'linkedin' : 'twitter';
+          const articleTitle = document.querySelector('h1')?.textContent || 'unknown';
+          window.umami.track('social-link-click', {
+            platform: platform,
+            article: articleTitle.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+            destination: this.href
+          });
+        });
+      });
+
+      // Track scroll depth (engagement metric)
+      let maxScroll = 0;
+      let scrollTracked = {25: false, 50: false, 75: false, 100: false};
+      
+      window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        maxScroll = Math.max(maxScroll, scrollPercent);
+        
+        // Track scroll milestones
+        [25, 50, 75, 100].forEach(milestone => {
+          if (scrollPercent >= milestone && !scrollTracked[milestone]) {
+            scrollTracked[milestone] = true;
+            const articleTitle = document.querySelector('h1')?.textContent || 'unknown';
+            window.umami.track('scroll-depth', {
+              depth: milestone,
+              article: articleTitle.toLowerCase().replace(/[^a-z0-9]/g, '-')
+            });
+          }
+        });
+      });
+
+      // Track time on page (engagement metric)
+      let startTime = Date.now();
+      let timeTracked = {30: false, 60: false, 180: false, 300: false}; // 30s, 1m, 3m, 5m
+      
+      setInterval(function() {
+        const timeSpent = Math.floor((Date.now() - startTime) / 1000);
+        
+        [30, 60, 180, 300].forEach(milestone => {
+          if (timeSpent >= milestone && !timeTracked[milestone]) {
+            timeTracked[milestone] = true;
+            const articleTitle = document.querySelector('h1')?.textContent || 'unknown';
+            window.umami.track('time-on-page', {
+              duration: milestone,
+              article: articleTitle.toLowerCase().replace(/[^a-z0-9]/g, '-')
+            });
+          }
+        });
+      }, 10000); // Check every 10 seconds
+
+      // Track external link clicks
+      const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="operatingleader.com"])');
+      externalLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const articleTitle = document.querySelector('h1')?.textContent || 'unknown';
+          window.umami.track('external-link-click', {
+            article: articleTitle.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+            destination: this.href,
+            linkText: this.textContent.trim()
+          });
+        });
+      });
+
+    });
+  });
+</script>

@@ -26,3 +26,6 @@ deploy-to-cloudflare.sh
 
 # jetbrains setting folder
 .idea/
+
+# different project files
+.project-files/
