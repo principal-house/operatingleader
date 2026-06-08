@@ -2,12 +2,10 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
-const toSlug = (id: string) => id.replace(/\.(md|mdx)$/, '');
-
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		params: { slug: toSlug(post.id) },
+		params: { slug: post.id.replace(/\.(md|mdx)$/, '') },
 		props: post,
 	}));
 }
