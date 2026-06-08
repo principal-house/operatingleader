@@ -7,6 +7,8 @@ import { getCollection } from 'astro:content';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
+const toSlug = (id: string) => id.replace(/\.(md|mdx)$/, '');
+
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
@@ -42,7 +44,7 @@ const posts = (await getCollection('blog')).sort(
 			<section class="posts">
 				<div class="section-label">Latest</div>
 				{posts.map((post) => (
-					<a href={`/blog/${post.id}/`} class="post-card">
+					<a href={`/blog/${toSlug(post.id)}/`} class="post-card">
 						<div class="post-content">
 							<h3>{post.data.title}</h3>
 							<p class="post-desc">{post.data.description}</p>

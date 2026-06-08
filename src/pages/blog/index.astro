@@ -6,6 +6,8 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 
+const toSlug = (id: string) => id.replace(/\.(md|mdx)$/, '');
+
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
@@ -25,7 +27,7 @@ const posts = (await getCollection('blog')).sort(
 			</div>
 			<div class="posts">
 				{posts.map((post) => (
-					<a href={`/blog/${post.id}/`} class="post-card">
+					<a href={`/blog/${toSlug(post.id)}/`} class="post-card">
 						<div>
 							<h2>{post.data.title}</h2>
 							<p class="desc">{post.data.description}</p>
