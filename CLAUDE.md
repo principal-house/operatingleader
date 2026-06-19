@@ -169,8 +169,13 @@ npm run check:publish  # build + verify (run before EVERY deploy)
    ```sh
    env -u CLOUDFLARE_API_TOKEN -u CLOUDFLARE_EMAIL_TOKEN HOME=/Users/frank \
      CLOUDFLARE_ACCOUNT_ID=71058e0bdf27f2cf29ba3fbab5c160aa \
-     npx wrangler pages deploy dist --project-name=operatingleader --commit-dirty=true
+     npx wrangler pages deploy dist --project-name=operatingleader --branch=main --commit-dirty=true
    ```
+   **`--branch=main` is required.** Wrangler infers the deploy branch from the current git
+   branch; if you are not on `main` (e.g. on `reconcile/origin-main`), omitting it deploys
+   to a *preview* env and the live site does NOT update. Verify with
+   `npx wrangler pages deployment list --project-name=operatingleader` (look for
+   `Environment: Production`).
 
 ### Known failure modes (full detail in `README.md`)
 - **Source drift / ghost page** — URL works but article missing from listings → the

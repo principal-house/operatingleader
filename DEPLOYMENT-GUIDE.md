@@ -38,8 +38,10 @@ Your article content starts here...
 # Build the site
 npm run build
 
-# Deploy to Cloudflare Pages
-npx wrangler pages deploy dist --project-name=operatingleader
+# Deploy to Cloudflare Pages (--branch=main targets PRODUCTION; without it,
+# Wrangler uses your current git branch and deploys to a preview that won't
+# update operatingleader.com)
+npx wrangler pages deploy dist --project-name=operatingleader --branch=main
 ```
 
 ## Full Step-by-Step for New Articles
@@ -70,10 +72,10 @@ npx wrangler pages deploy dist --project-name=operatingleader
    git push origin main
    ```
 
-5. **Deploy to production**
+5. **Deploy to production** (`--branch=main` is required to hit production, not a preview)
    ```bash
    npm run build
-   npx wrangler pages deploy dist --project-name=operatingleader
+   npx wrangler pages deploy dist --project-name=operatingleader --branch=main
    ```
 
 ## Important Notes
@@ -107,7 +109,7 @@ If you want automatic deployment on GitHub push:
 ### "Article not showing on website"
 1. Check if build succeeded: `npm run build`
 2. Verify article appears in build output
-3. Run deployment: `npx wrangler pages deploy dist --project-name=operatingleader`
+3. Run deployment: `npx wrangler pages deploy dist --project-name=operatingleader --branch=main`
 4. Clear browser cache or check in incognito mode
 5. Wait 2-3 minutes for CDN propagation
 
@@ -138,8 +140,8 @@ npm run dev
 # Build site
 npm run build
 
-# Deploy to production
-npx wrangler pages deploy dist --project-name=operatingleader
+# Deploy to production (--branch=main = production; omitting it = preview only)
+npx wrangler pages deploy dist --project-name=operatingleader --branch=main
 
 # Check deployment history
 npx wrangler pages deployment list --project-name=operatingleader

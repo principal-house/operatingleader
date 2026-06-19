@@ -46,7 +46,14 @@ Use this sequence every time.
    env -u CLOUDFLARE_API_TOKEN -u CLOUDFLARE_EMAIL_TOKEN \
      HOME=/Users/frank \
      CLOUDFLARE_ACCOUNT_ID=71058e0bdf27f2cf29ba3fbab5c160aa \
-     npx wrangler pages deploy dist --project-name=operatingleader --commit-dirty=true
+     npx wrangler pages deploy dist --project-name=operatingleader --branch=main --commit-dirty=true
+   ```
+   **Always pass `--branch=main`.** Wrangler infers the deploy branch from your current git
+   branch. If you are not on `main` (e.g. working on `reconcile/origin-main`), omitting it
+   sends the build to a *preview* deployment and **operatingleader.com will not update**.
+   Confirm the result shows `Environment: Production`:
+   ```sh
+   npx wrangler pages deployment list --project-name=operatingleader
    ```
 
 ## Why the extra Cloudflare env handling exists
