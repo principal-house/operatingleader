@@ -25,7 +25,7 @@ Chu's concept of "thick face, black heart" isn't about being heartless. It's abo
 
 **How it changed my leadership:**
 
-At Mailigen, I had to fire our first sales hire — a friend who helped us get started but couldn't grow with the company. Old me would have delayed for months, hoping things would improve. "Thick face, black heart" me had the conversation within a week. It was the right call for everyone.
+At Mailigen, I had to fire our first support hire — a friend who helped us get started but couldn't grow with the company. Old me would have delayed for months, hoping things would improve. "Thick face, black heart" me had the conversation within a week. It was the right call for everyone.
 
 Later, during the Pipedrive acquisition, when teams were being restructured and people were scared, this philosophy kept me focused on what was best for the 700 people in the company, not just the vocal few who resisted change.
 
@@ -67,7 +67,7 @@ During the private equity transition at Pipedrive, this thinking saved me from m
 
 ## "Extreme Ownership" by Jocko Willink
 
-**When I read it:** 2018, during a particularly challenging quarter at Pipedrive  
+**When I read it:** 2018, during a particularly challenging quarter at Mailigen  
 **What it taught me:** Leadership is taking responsibility for outcomes, not assigning blame
 
 I thought I understood accountability until I read this book. Willink's military examples of extreme ownership — taking responsibility not just for your decisions but for every outcome in your sphere of influence — was a masterclass in leadership mindset.
