@@ -4,7 +4,7 @@ description: "AI made building cheap. Citizen Builders ship internal tools. Prod
 pubDate: 2026-04-23
 author: "Janis Rozenblats"
 tags: ["VP product AI era", "product leadership AI transformation", "future of product management"]
-heroImage: ../../../public/images/operatingleader-product-leader-job.png
+heroImage: ../../../public/blog/operatingleader-product-leader-job.png
 ---
 
 For twenty years, my job was figuring out what should get built. The role of "product leader" looked very different at every stage of my career.

@@ -3,8 +3,9 @@ interface Props {
 	compact?: boolean;
 }
 const { compact = false } = Astro.props;
-const MAUTIC_URL = "https://mail.principal.house";
-const SEGMENT_ID = 1; // OperatingLeader segment
+const MAUTIC_URL = "https://marketing.principal.house/api-subscribe.php";
+const BRAND = "operatingleader";
+const SEGMENT_ID = 8;
 ---
 
 <div class="nl-wrapper">
@@ -18,7 +19,7 @@ const SEGMENT_ID = 1; // OperatingLeader segment
 	<p class="nl-message" id="nl-message" style="display:none;"></p>
 </div>
 
-<script define:vars={{ MAUTIC_URL, SEGMENT_ID }}>
+<script define:vars={{ MAUTIC_URL, BRAND, SEGMENT_ID }}>
 	const form = document.getElementById('nl-form');
 	const msg = document.getElementById('nl-message');
 	const btn = document.getElementById('nl-btn');
@@ -33,19 +34,14 @@ const SEGMENT_ID = 1; // OperatingLeader segment
 		btn.textContent = '...';
 
 		try {
-			const res = await fetch(`${MAUTIC_URL}/api/subscribe.php`, {
+			const res = await fetch(MAUTIC_URL, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ 
-					email: email,
-					segment_id: SEGMENT_ID,
-					brand: 'operatingleader'
-				}),
+				body: JSON.stringify({ email, brand: BRAND, segment_id: SEGMENT_ID }),
 			});
-			
 			const data = await res.json();
 			
-			if (res.ok && data.success) {
+			if (data.success) {
 				form.style.display = 'none';
 				msg.style.display = 'block';
 				msg.textContent = '🎉 Check your inbox to confirm your subscription!';
@@ -55,7 +51,7 @@ const SEGMENT_ID = 1; // OperatingLeader segment
 			}
 		} catch (err) {
 			msg.style.display = 'block';
-			msg.textContent = 'Something went wrong. Please try again.';
+			msg.textContent = err.message || 'Something went wrong. Please try again.';
 			msg.className = 'nl-message nl-error';
 			btn.disabled = false;
 			btn.textContent = 'Subscribe';

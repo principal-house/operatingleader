@@ -37,7 +37,7 @@
 ## Newsletter
 - **Name:** The Operating Leader
 - **Tagline:** One insight per week on scaling teams from 10 to 100.
-- **Platform:** MailerLite (TBD)
+- **Platform:** Mautic (admin: marketing.principal.house · tracking: go.operatingleader.com · confirm: /confirm)
 - **Format:** One idea per issue, well articulated. Not a link roundup.
 
 ## Author

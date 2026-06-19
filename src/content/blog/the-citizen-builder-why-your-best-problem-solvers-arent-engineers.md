@@ -4,7 +4,7 @@ description: "Product Builders own core products. But what about the hundreds of
 pubDate: 2026-04-21
 author: "Janis Rozenblats"
 tags: ["citizen builder", "citizen developer AI", "internal tools AI", "AI adoption organization"]
-heroImage: ../../../public/images/operatingleader-citizen-builder.png
+heroImage: ../../../public/blog/operatingleader-citizen-builder.png
 ---
 
 Our operations manager at Aerones had been asking for a rostering tool for two years. Two years on the product backlog. Never prioritized. Always pushed to next quarter.

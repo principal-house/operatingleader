@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Preferences - The Operating Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --text: #111111;
+            --muted: #6b6b66;
+            --line: #e8e6df;
+            --button: #111111;
+            --buttonText: #ffffff;
+            --soft: #f6f5f2;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .card {
+            width: 100%;
+            max-width: 680px;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(17, 17, 17, 0.06);
+            background: var(--card);
+        }
+        .head {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--line);
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .body {
+            padding: 48px 28px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0 0 16px;
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 0.98;
+            letter-spacing: -0.04em;
+        }
+        p {
+            margin: 0 auto 16px;
+            max-width: 540px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        .panel {
+            margin: 28px auto 0;
+            max-width: 520px;
+            background: var(--soft);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 22px;
+            text-align: left;
+        }
+        .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .value {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .actions {
+            margin-top: 28px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .button, .buttonLink {
+            appearance: none;
+            border: 1px solid #111111;
+            background: #111111;
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 14px 22px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 140ms ease, opacity 140ms ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .buttonLink.secondary {
+            background: transparent;
+            color: #111111;
+            border-color: var(--line);
+        }
+        .button:hover, .buttonLink:hover { transform: translateY(-1px); opacity: 0.96; }
+        .status {
+            margin-top: 18px;
+            font-size: 14px;
+            color: var(--muted);
+            min-height: 22px;
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <div class="head">Email Preferences</div>
+        <section class="body">
+            <h1>Unsubscribe from emails</h1>
+            <p>If you continue, you’ll stop receiving this publication by email. You can always rejoin later.</p>
+            <div class="panel">
+                <div class="label">Publication</div>
+                <div class="value" id="publicationName">The Operating Leader</div>
+            </div>
+            <div class="actions">
+                <button class="button" id="unsubscribeBtn">Unsubscribe</button>
+                <a class="buttonLink secondary" href="https://operatingleader.com/">Cancel</a>
+            </div>
+            <div class="status" id="statusText"></div>
+        </section>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const publicationName = params.get('publication') || params.get('brand') || 'The Operating Leader';
+        const hash = params.get('hash');
+        const email = params.get('email');
+        const tracking = params.get('tracking') || params.get('tracking_hash');
+        const publicationEl = document.getElementById('publicationName');
+        const statusEl = document.getElementById('statusText');
+        const button = document.getElementById('unsubscribeBtn');
+
+        publicationEl.textContent = publicationName;
+
+        function setStatus(text) {
+            statusEl.textContent = text;
+        }
+
+        button.addEventListener('click', async () => {
+            if (!hash || !email || !tracking) {
+                setStatus('This unsubscribe link is incomplete. Please use the link from your email.');
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = 'Unsubscribing...';
+            setStatus('Processing your request...');
+
+            const endpoint = `https://go.operatingleader.com/email/unsubscribe/${encodeURIComponent(tracking)}/${encodeURIComponent(email)}/${encodeURIComponent(hash)}`;
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'GET',
+                    credentials: 'include',
+                    redirect: 'follow'
+                });
+
+                if (response.ok) {
+                    document.querySelector('h1').textContent = 'You’ve been unsubscribed.';
+                    setStatus('You will no longer receive these emails.');
+                    button.style.display = 'none';
+                    return;
+                }
+
+                setStatus('We could not complete the unsubscribe request automatically. Please try again from the email link.');
+            } catch (err) {
+                setStatus('We could not reach the unsubscribe service yet. Please try again in a minute.');
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Unsubscribe';
+            }
+        });
+    </script>
+</body>
+</html>

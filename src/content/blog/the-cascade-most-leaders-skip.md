@@ -3,7 +3,7 @@ title: "The Cascade Most Leaders Skip"
 description: "The four-link cascade between annual vision and Tuesday's actual work. Why most plans die in April — and the discipline that keeps them alive."
 pubDate: 2026-05-12
 slug: "the-cascade-most-leaders-skip"
-heroImage: ../../../public/images/the-cascade-most-leaders-skip.png
+heroImage: ../../../public/blog/the-cascade-most-leaders-skip.png
 heroAlt: "The four-link cascade — Year, Quarter, Week, Day — with their cadences and outputs"
 tags: ["operating systems", "planning", "leadership", "execution"]
 author: "Janis Rozenblats"

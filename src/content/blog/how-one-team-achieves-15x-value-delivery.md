@@ -4,7 +4,7 @@ description: "The Product Builder model sounds great in theory. Here's the actua
 pubDate: 2026-04-14
 author: "Janis Rozenblats"
 tags: ["product builder operating model", "AI-first product team", "15x value delivery", "product quality gates"]
-heroImage: ../../../public/images/operatingleader-product-builder-powerhouse.png
+heroImage: ../../../public/blog/operatingleader-product-builder-powerhouse.png
 ---
 
 People love the idea of Product Builders or have limited understanding of how it works. Small teams. Fewer handoffs. Ship in days instead of weeks.
@@ -62,7 +62,7 @@ The key rule: steps 1-4 happen BEFORE any code. Skip discovery and you build the
 
 Anton Osika, the founder of Lovable — which hit $10M ARR in 60 days with 15 people — put it simply: the biggest bottleneck is shifting from "who can build it?" to "who knows what to build?"
 
-![The Product Builder Operating Loop](/images/operatingleader-product-builder-operating-loop.png)
+![The Product Builder Operating Loop](/blog/operatingleader-product-builder-operating-loop.png)
 
 ## Quality gates
 
