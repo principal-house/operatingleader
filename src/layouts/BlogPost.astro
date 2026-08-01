@@ -30,6 +30,62 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
 			}
+			.prose img.expandable-image {
+				cursor: zoom-in;
+			}
+			.prose img.expandable-image:focus-visible {
+				outline: 2px solid var(--accent);
+				outline-offset: 4px;
+			}
+			.image-lightbox {
+				width: min(96vw, 1400px);
+				max-width: 96vw;
+				max-height: 96vh;
+				padding: 0;
+				border: 0;
+				background: transparent;
+				overflow: visible;
+			}
+			.image-lightbox::backdrop {
+				background: rgba(0, 0, 0, 0.86);
+				backdrop-filter: blur(2px);
+			}
+			.image-lightbox__frame {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: min(90vh, 800px);
+			}
+			.image-lightbox__image {
+				display: block;
+				width: auto;
+				max-width: 96vw;
+				height: auto;
+				max-height: 90vh;
+				border-radius: 8px;
+				background: var(--bg);
+				box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+			}
+			.image-lightbox__close {
+				position: absolute;
+				top: -14px;
+				right: -14px;
+				width: 36px;
+				height: 36px;
+				border: 1px solid rgba(201, 165, 90, 0.45);
+				border-radius: 999px;
+				background: var(--bg-raised);
+				color: var(--text);
+				font-size: 22px;
+				line-height: 1;
+				cursor: pointer;
+			}
+			.image-lightbox__close:hover,
+			.image-lightbox__close:focus-visible {
+				color: var(--accent);
+				border-color: var(--accent);
+			}
 			.prose {
 				width: 720px;
 				max-width: calc(100% - 2em);
@@ -120,7 +176,61 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				</div>
 			</article>
 		</main>
+		<dialog class="image-lightbox" data-image-lightbox aria-label="Expanded article image">
+			<div class="image-lightbox__frame">
+				<button class="image-lightbox__close" type="button" data-image-lightbox-close aria-label="Close expanded image">x</button>
+				<img class="image-lightbox__image" data-image-lightbox-image alt="" />
+			</div>
+		</dialog>
 		<Footer />
 		<ConversionTracking />
+		<script is:inline>
+			(() => {
+				const dialog = document.querySelector('[data-image-lightbox]');
+				const dialogImage = document.querySelector('[data-image-lightbox-image]');
+				const closeButton = document.querySelector('[data-image-lightbox-close]');
+				const images = document.querySelectorAll('.prose img');
+
+				if (!dialog || !dialogImage || !closeButton || typeof dialog.showModal !== 'function') {
+					return;
+				}
+
+				const openImage = (image) => {
+					dialogImage.src = image.currentSrc || image.src;
+					dialogImage.alt = image.alt || '';
+					dialog.showModal();
+					closeButton.focus();
+				};
+
+				const closeImage = () => {
+					dialog.close();
+					dialogImage.removeAttribute('src');
+				};
+
+				images.forEach((image) => {
+					if (image.closest('a')) return;
+
+					image.classList.add('expandable-image');
+					image.setAttribute('role', 'button');
+					image.setAttribute('tabindex', '0');
+					image.setAttribute('aria-label', image.alt ? `Expand image: ${image.alt}` : 'Expand image');
+
+					image.addEventListener('click', () => openImage(image));
+					image.addEventListener('keydown', (event) => {
+						if (event.key !== 'Enter' && event.key !== ' ') return;
+						event.preventDefault();
+						openImage(image);
+					});
+				});
+
+				closeButton.addEventListener('click', closeImage);
+				dialog.addEventListener('click', (event) => {
+					if (event.target === dialog) closeImage();
+				});
+				dialog.addEventListener('close', () => {
+					dialogImage.removeAttribute('src');
+				});
+			})();
+		</script>
 	</body>
 </html>
