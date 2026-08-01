@@ -34,7 +34,7 @@
 
 | Role | Org | Dates | Notes |
 |------|-----|-------|-------|
-| VP of Product | **Aerones** (Series B deep-tech robotics) | Aug 2024 – May 2026 | Built product org from zero; 3 software tribes |
+| VP of Product | **Aerones** (Series B deep-tech robotics) | Aug 2024 – May 2026 | Built product org from zero; 5 hardware  and 3 software tribes |
 | VP of Product | **Pipedrive** (acq. by Vista Equity Partners) | Mar 2020 – Dec 2023 | Joined at €100M ARR / 650 people; grew to ~1,000 + unicorn |
 | CEO / Co-Founder | **Mailigen** (acq. by Pipedrive) | Jun 2009 – Jan 2023 | Email marketing automation; **acquired 2020**, product discontinued 2023 |
 | CEO / Founder | **LeaderSend** (acq. by Pipedrive) | Sep 2013 – Jul 2022 | Transactional email; deliverability + API/dev experience |

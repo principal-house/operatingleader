@@ -77,6 +77,19 @@ statement using opposition or reversal.
 - ✅ "PE didn't kill my founder spirit. It gave it structure."
 - ❌ "I realized that having more structure actually helped me be more creative in my product work." (insight is there but the line is flat. No rhythm, no punch.)
 
+**Ration the reframe. It's now an AI tell.** The "It's not X, it's Y" reversal (and its
+cousins: "Stop X. Start Y.", "X is dead. Y is the future.", "It's not about X, it's about
+Y.") is the single most-flagged AI-writing pattern as of 2026. We lean on it, usually in
+closers. Keep it, but ration it:
+- **Max one reversal per piece**, and make it earn its place. If two articles in a row end
+  on the same see-saw, you've overused it.
+- **Ground it in a specific, not two abstractions.** ✅ "The dashboard didn't slow us down.
+  It cut three approval emails per invoice." ❌ "It's not about speed. It's about clarity."
+- When in doubt, **just state the positive claim** and delete the rejected half. "Structure
+  is what lets you do bigger things" beats "It's not freedom that scales. It's structure."
+- Vary your closers. A specific, a question, an imperative, and a reframe should rotate
+  across pieces, not the reframe every time.
+
 ### CTAs (always easy, never pushy)
 - ✅ "Worth a quick 15-min call? Here's my calendar: [link]"
 - ✅ "Coffee next week? I'm near [location] on Tuesday"
@@ -125,6 +138,19 @@ short sentences beat one long em-dashed sentence.
 | stands as / serves as | is |
 | testament to | proof of, shows |
 | align with | fit, match, go with |
+| leverage (verb) | use, lean on |
+| unlock | open up, give access to |
+| harness | use, put to work |
+| seamless | smooth, no friction |
+| synergy | fit, how they work together |
+| elevate | raise, improve |
+| scalable | grows without breaking |
+| holistic | whole, end-to-end |
+| supercharge | speed up, boost |
+| game-changer | [just say what it changes] |
+
+> These decay over time. "Unlock" and "harness" read as AI tells now; "leverage" is going
+> the same way. Re-read recent drafts every so often and add new offenders here.
 
 ### Banned phrases
 - "I hope this email finds you well"
@@ -143,6 +169,21 @@ short sentences beat one long em-dashed sentence.
 - Over-explaining
 - False urgency ("limited time offer")
 - Multiple paragraphs before the value
+- Elegant variation (renaming the same thing to dodge repetition). Say "Pipedrive" again,
+  not "the company" then "the firm" then "the org." Use the real name.
+
+### Banned transitions & filler
+Use a real transition or none. Never:
+- Furthermore / Moreover / Additionally
+- That said / That being said / With that in mind
+- On top of that / It's also worth mentioning
+
+### Banned engagement bait
+LinkedIn/X reflexes that scream AI. Never:
+- "Let that sink in" / "Read that again"
+- "This changes everything"
+- "Full stop." (as a standalone emphasis line)
+- "Are you paying attention?" / "You're not ready for this"
 
 ---
 
@@ -214,6 +255,24 @@ platform. LinkedIn = professional scanning. X = idea-per-tweet consumption. Face
 slightly longer emotional reads.
 
 ---
+
+## Don't overfit the voice
+
+These rules describe taste, not a formula. Followed too literally they create their own AI
+tell: choppy fragment-spam where every line is three words and every section ends on a
+reversal. The cure for sounding like AI is not a different costume.
+
+- **Don't make every sentence punchy.** Vary length. A 25-word sentence that earns it,
+  sitting between two short ones, is the rhythm. All-short is as robotic as all-medium.
+- **Don't make every paragraph one line.**
+- **Don't force the contrast or reframe into every section.** (See "Ration the reframe.")
+- **Don't swap in a worse word** just because the exact one sits on a banned list. Spirit
+  over letter. If it's the precise word and nothing cleaner exists, use it.
+- **Write it normally first, then cut the machine-made parts.** Don't write to the
+  checklist. The checklist is for the edit pass, not the draft.
+
+Test: does this sound like Jānis, or like someone performing "not-AI"? If it's performing,
+simplify it.
 
 ## The Authenticity Test
 

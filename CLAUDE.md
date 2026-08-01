@@ -55,7 +55,9 @@ Quick summary (full detail in VOICE.md):
 - **LinkedIn posts:** hook + insight + CTA, under 1300 characters.
 - **Playbook sections:** clear, actionable, frameworks over theory.
 - **Newsletter (The Operating Note):** follow [NEWSLETTER.md](NEWSLETTER.md) end to end
-  (load the Notion pages, 8-section format, rotating PS, plain-text then HTML for Mautic).
+  (load the Notion pages, 8-section format, rotating PS, plain-text then HTML for Mautic)
+  and use [NEWSLETTER-STYLE.md](NEWSLETTER-STYLE.md) for the current compact dark-card
+  email style.
 
 ---
 
@@ -84,6 +86,9 @@ npm run check:publish  # build + verify (run before EVERY deploy)
 ## 3. Where to look — by task
 
 ### ✍️ Writing or editing a blog article
+- **`ARTICLE-GUIDE.md`** — how we structure articles (length, opener patterns, section
+  arc, formatting, frontmatter spec, closings/CTAs, SEO + distribution, pre-publish
+  checklist). **Read it before drafting any article.** Companion to VOICE.md (tone).
 - **`src/content/blog/<slug>.md`** — the article source. One markdown file per article.
   This is the **source of truth**. If the file isn't here, the article disappears from
   the homepage list, `/blog/` index, and RSS on the next rebuild (even if the URL still
@@ -137,6 +142,9 @@ npm run check:publish  # build + verify (run before EVERY deploy)
   to use it, the two Notion source-of-truth pages, the strict 8-section format, the
   rotating PS cycle, editorial principles, and the plain-text→Mautic-HTML output order.
   **Follow it end to end whenever drafting an issue.** Uses [VOICE.md](VOICE.md) for copy.
+- **`NEWSLETTER-STYLE.md`** — the house email style captured from the previous sent
+  newsletter sample: compact dark card, no big internal headline, artifact save-card,
+  PS card, split sign-off, and exact Mautic-ready layout conventions.
 
 ### 📧 Newsletter / email flow (signup infra)
 - **`src/components/NewsletterForm.astro`**, **`src/pages/subscribe.astro`**,
@@ -200,8 +208,10 @@ npm run check:publish  # build + verify (run before EVERY deploy)
 | `workers/checkout/` | Cloudflare Worker for checkout | Payment/checkout |
 | `scripts/verify-site.mjs` | Publish health checks | Debugging verify failures |
 | `VOICE.md` | Jānis's voice & tone rulebook | Before writing any copy |
+| `ARTICLE-GUIDE.md` | Blog article structure + pre-publish checklist | Before drafting an article |
 | `FACTS.md` | Canonical operator facts (Pipedrive/Mailigen/Aerones) | Before citing any career specific |
 | `NEWSLETTER.md` | The Operating Note production playbook | Drafting a newsletter issue |
+| `NEWSLETTER-STYLE.md` | The Operating Note house email style | Styling newsletter HTML |
 | `ILLUSTRATIONS.md` | Article illustration spec + export | Making a graphic for an article |
 | `BRAND.md` | Brand + visual identity guide | Any visual or brand work |
 | `README.md` | Publish workflow + failure modes | Before deploying |

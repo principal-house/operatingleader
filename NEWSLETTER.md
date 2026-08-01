@@ -2,8 +2,9 @@
 
 > The production playbook for **The Operating Note**, the bi-weekly newsletter for
 > operatingleader.com. When asked to draft an issue, follow this end to end. Voice rules
-> live in [VOICE.md](VOICE.md); brand/visual rules in [BRAND.md](BRAND.md); site context
-> in [CLAUDE.md](CLAUDE.md).
+> live in [VOICE.md](VOICE.md); house email style lives in
+> [NEWSLETTER-STYLE.md](NEWSLETTER-STYLE.md); brand/visual rules in [BRAND.md](BRAND.md);
+> site context in [CLAUDE.md](CLAUDE.md).
 >
 > **This file is the orchestration layer. Notion is the content.** The editorial roadmap,
 > brief, master HTML template, and PS variants live in the two Notion pages below. If
@@ -144,7 +145,9 @@ and fill in body specific to this issue.
 2. **Plain-text version** — the 8 content sections as plain text so Jānis can review/edit
    before HTML.
 3. **Ready-to-paste HTML** — the master template (from the Build & Send Guide) with
-   content slotted in. Goes straight into Mautic Code Mode.
+   content slotted in. Goes straight into Mautic Code Mode. If the Notion master template
+   is unavailable but a sent issue sample is available, follow
+   [NEWSLETTER-STYLE.md](NEWSLETTER-STYLE.md) exactly instead of inventing a new layout.
 
 Jānis edits in plain text first, then re-requests HTML if changes are significant. Always
 be ready to regenerate the HTML after content edits.
@@ -185,6 +188,8 @@ dash because it never changes. Don't introduce any other dashes.
 
 ## What never changes
 
+- House email style: follow [NEWSLETTER-STYLE.md](NEWSLETTER-STYLE.md). The current style
+  uses the compact dark-card Issue #005 layout, not a large headline/article layout.
 - Sign-off: "Systems set you free. — JR"
 - Footer: "The Operating Note · A bi-weekly note from operatingleader.com" +
   unsubscribe/webview
